@@ -2,26 +2,24 @@
 /*
 Plugin Name: wpuntexturize
 Version: 1.0
+Plugin URI: http://coffee2code.com/wp-plugins/
 Author: Scott Reilly
-Author URI: http://www.coffee2code.com
+Author URI: http://coffee2code.com
 Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
 Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's wptexturize() function.
 This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with 
 their curly alternatives and does NOT prevent wptexturize() from making any other character and string substitutions. 
 
-Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, and 2.3+.
+Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, and 2.5.
 
 =>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
 =>> for more information and the latest updates
 
 Installation:
 
-1. Download the file http://www.coffee2code.com/wp-plugins/wpuntexturize.zip and unzip it into your 
+1. Download the file http://coffee2code.com/wp-plugins/wpuntexturize.zip and unzip it into your 
 /wp-content/plugins/ directory.
--OR-
-Copy and paste the the code ( http://www.coffee2code.com/wp-plugins/wpuntexturize.phps ) into a file called 
-wpuntexturize.php, and put that file into your /wp-content/plugins/ directory.
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 */

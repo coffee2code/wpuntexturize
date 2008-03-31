@@ -3,7 +3,7 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com
 Tags: quotes, curly, substituions, wptexturize, post, content
 Requires at least: 1.5
-Tested up to: 2.3.2
+Tested up to: 2.5
 Stable tag: trunk
 Version: 1.0
 
