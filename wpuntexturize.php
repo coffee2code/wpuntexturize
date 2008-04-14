@@ -2,7 +2,7 @@
 /*
 Plugin Name: wpuntexturize
 Version: 1.0
-Plugin URI: http://coffee2code.com/wp-plugins/
+Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
