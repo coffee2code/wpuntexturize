@@ -1,10 +1,10 @@
 === wpuntexturize ===
 Contributors: coffee2code
 Donate link: http://coffee2code.com
-Tags: quotes, curly, substituions, wptexturize, post, content
+Tags: quotes, curly, substituions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
-Tested up to: 2.5
-Stable tag: trunk
+Tested up to: 2.8
+Stable tag: 1.0
 Version: 1.0
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.

@@ -11,7 +11,7 @@ Despite the unfortunately misleading name, this plugin is NOT the antithesis of 
 This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with 
 their curly alternatives and does NOT prevent wptexturize() from making any other character and string substitutions. 
 
-Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, and 2.5.
+Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, 2.5+, 2.6+, 2.7+, 2.8+.
 
 =>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
 =>> for more information and the latest updates
@@ -25,7 +25,7 @@ Installation:
 */
 
 /*
-Copyright (c) 2004-2008 by Scott Reilly (aka coffee2code)
+Copyright (c) 2004-2009 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
