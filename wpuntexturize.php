@@ -23,7 +23,7 @@ Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 
 
 Installation:
 
-1. Download the file http://coffee2code.com/wp-plugins/wpuntexturize.zip and unzip it into your
+1. Download the file http://downloads.wordpress.org/plugin/wpuntexturize.zip and unzip it into your
 /wp-content/plugins/ directory (or install via the built-in WordPress plugin installer).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 

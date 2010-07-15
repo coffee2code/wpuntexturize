@@ -3,7 +3,7 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
-Tested up to: 3.0
+Tested up to: 3.0.1
 Stable tag: 1.2
 Version: 1.2
 
@@ -43,6 +43,7 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 * Now unfilter everything that wptexturize is applied to by default, which now includes these filters: comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description
 * Wrap function in function_exists() check to be safe
 * Note compatibility with WP 3.0+
+* Add Upgrade Notice section to readme
 
 = 1.1 =
 * Convert `&#8242;` and `&#8243;` back to single and double quotes, respectively
@@ -68,3 +69,8 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 
 = 0.9 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.2 =
+Highlights: now applies to all places in WordPress where quotes are made curly; can now programmatically control what filters are affected; verified WP 3.0 compatibility.
