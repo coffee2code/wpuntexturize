@@ -16,9 +16,9 @@ Prevent WordPress from displaying single and double quotation marks as their cur
 Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions.
 
 *Advanced:*  The plugin performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default.  This list comprises:
-{{{
-comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, the_title, the_content, the_excerpt, comment_text, list_cats, widget_text.
-}}}
+
+`comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, the_title, the_content, the_excerpt, comment_text, list_cats, widget_text`
+
 This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize`.
 
 == Installation ==
