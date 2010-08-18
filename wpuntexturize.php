@@ -2,11 +2,11 @@
 /**
  * @package wpuntexturize
  * @author Scott Reilly
- * @version 1.3
+ * @version 1.3.1
  */
 /*
 Plugin Name: wpuntexturize
-Version: 1.3
+Version: 1.3.1
 Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize
 Author: Scott Reilly
 Author URI: http://coffee2code.com
@@ -58,7 +58,7 @@ function wpuntexturize( $text ) {
 add_action( 'wpuntexturize', 'wpuntexturize' );
 endif;
 
-if ( !functions_exists( 'c2c_init_wpuntexturize' ) ) :
+if ( !function_exists( 'c2c_init_wpuntexturize' ) ) :
 /**
  * Initialize wpuntexturize, primarily to register it against filters
  *
@@ -68,7 +68,7 @@ function c2c_init_wpuntexturize() {
 	$filters = (array) apply_filters( 'wpuntexturize_filters', array(
 	 'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
 	 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
-	 'term_description', 'the_title', 'the_content', 'the_excerpt', 'comment_text', 'list_cats', 'widget_text' );
+	 'term_description', 'the_title', 'the_content', 'the_excerpt', 'comment_text', 'list_cats', 'widget_text' ) );
 	foreach( $filters as $filter )
 		add_filter( $filter, 'wpuntexturize', 11 );
 }

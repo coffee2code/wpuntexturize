@@ -4,8 +4,8 @@ Donate link: http://coffee2code.com/donate
 Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
 Tested up to: 3.0.1
-Stable tag: 1.3
-Version: 1.3
+Stable tag: 1.3.1
+Version: 1.3.1
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -58,6 +58,7 @@ The plugin is further customizable via two filters. Typically, these customizati
 The 'wpuntexturize' filter allows you to use an alternative approach to safely invoke `wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
 Arguments:
+
 * none
 
 Example:
@@ -75,6 +76,7 @@ Do:
 The 'wpuntexturize_filters' filter allows you to customize what filters to hook to be filtered with wpuntexturize.  See the Description section for a complete list of all filters that are filtered by default.
 
 Arguments:
+
 * array $filters : the default array of filters
 
 Example:
@@ -94,10 +96,13 @@ This ONLY prevents WordPress from making HTML entity code substitutions of singl
 
 = What text does this plugin modify (aka filter)? =
 
-This plugin potentially modifies the post content, excerpt, title, comment text, and widget text.  See the description for a complete list of filters that are unfiltered.
+This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.  See the description for a complete list of filters that are unfiltered.
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Fix two bugs (missing close parenthesis and typo)
 
 = 1.3 =
 * Rename 'wpuntexturize' filter to 'wpuntexturize_filters' to more accurately reflect its purpose (and to prevent conflict for new use of the filter name)
@@ -140,6 +145,9 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Bugfix release.  Fixed bugs preventing plugin activation.
 
 = 1.3 =
 Minor update: renamed a filter; added a filter; wrapped initialization into a function.
