@@ -3,9 +3,9 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
-Tested up to: 3.0.1
-Stable tag: 1.3.1
-Version: 1.3.1
+Tested up to: 3.1
+Stable tag: 1.3.2
+Version: 1.3.2
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -49,11 +49,22 @@ This complete list can be filtered via wpuntexturize's own filter, `wpuntexturiz
 1. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 
+== Frequently Asked Questions ==
+
+= Why are certain characters in my posts still being replaced by their HTML entity encoded version? =
+
+This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent WordPress from making any other character and string substitutions.
+
+= What text does this plugin modify (aka filter)? =
+
+This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.  See the description for a complete list of filters that are unfiltered.
+
+
 == Filters ==
 
 The plugin is further customizable via two filters. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
 
-= wpuntexturize =
+= wpuntexturize (filter) =
 
 The 'wpuntexturize' filter allows you to use an alternative approach to safely invoke `wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
@@ -65,13 +76,13 @@ Example:
 
 Instead of:
 
-    `<?php echo wpuntexturize( $mytext ); ?>`
+`<?php echo wpuntexturize( $mytext ); ?>`
 
 Do:
 
-    `<?php echo do_action( 'wpuntexturize', $mytext ); ?>`
+`<?php echo do_action( 'wpuntexturize', $mytext ); ?>`
 
-= wpuntexturize_filters =
+= wpuntexturize_filters (filter) =
 
 The 'wpuntexturize_filters' filter allows you to customize what filters to hook to be filtered with wpuntexturize.  See the Description section for a complete list of all filters that are filtered by default.
 
@@ -88,18 +99,11 @@ function more_wpuntexturize_filters( $filters ) {
 }`
 
 
-== Frequently Asked Questions ==
-
-= Why are certain characters in my posts still being replaced by their HTML entity encoded version? =
-
-This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent WordPress from making any other character and string substitutions.
-
-= What text does this plugin modify (aka filter)? =
-
-This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.  See the description for a complete list of filters that are unfiltered.
-
-
 == Changelog ==
+
+= 1.3.2 =
+* Note compatibility through WP 3.1+
+* Update copyright date (2011)
 
 = 1.3.1 =
 * Fix two bugs (missing close parenthesis and typo)
@@ -145,6 +149,9 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Trivial update: noted compatibility through WP 3.1+ and updated copyright date
 
 = 1.3.1 =
 Bugfix release.  Fixed bugs preventing plugin activation.
