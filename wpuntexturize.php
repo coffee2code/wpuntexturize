@@ -2,11 +2,11 @@
 /**
  * @package wpuntexturize
  * @author Scott Reilly
- * @version 1.3.2
+ * @version 1.4
  */
 /*
 Plugin Name: wpuntexturize
-Version: 1.3.2
+Version: 1.4
 Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize
 Author: Scott Reilly
 Author URI: http://coffee2code.com
@@ -36,7 +36,8 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRA
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-if ( !function_exists( 'wpuntexturize' ) ) :
+
+if ( !function_exists( 'c2c_wpuntexturize' ) ) :
 /**
  * Prevent WordPress from displaying single and double quotation marks as
  * their curly alternatives.
@@ -50,13 +51,14 @@ if ( !function_exists( 'wpuntexturize' ) ) :
  * @param string $text The text to have quotation characters reverted from HTML entities to plain-text
  * @return string The converted text
  */
-function wpuntexturize( $text ) {
+function c2c_wpuntexturize( $text ) {
 	$char_codes = array( '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;' );
 	$replacements = array( "'", "'", '"', '"', "'", '"' );
 	return str_replace( $char_codes, $replacements, $text );
 }
-add_action( 'wpuntexturize', 'wpuntexturize' );
+add_action( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
 endif;
+
 
 if ( !function_exists( 'c2c_init_wpuntexturize' ) ) :
 /**
@@ -70,9 +72,25 @@ function c2c_init_wpuntexturize() {
 	 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
 	 'term_description', 'the_title', 'the_content', 'the_excerpt', 'comment_text', 'list_cats', 'widget_text' ) );
 	foreach( $filters as $filter )
-		add_filter( $filter, 'wpuntexturize', 11 );
+		add_filter( $filter, 'c2c_wpuntexturize', 11 );
 }
 endif;
 add_action( 'init', 'c2c_init_wpuntexturize' );
+
+
+if ( !function_exists( 'wpuntexturize' ) ) :
+/**
+ * Prevent WordPress from displaying single and double quotation marks as
+ * their curly alternatives.
+ *
+ * @since 1.0
+ * @deprecated 1.4 Use c2c_wpuntexturize() instead
+ */
+function wpuntexturize( $text ) {
+	_deprecated_function( 'wpuntexturize', '1.4', 'c2c_wpuntexturize' );
+	return c2c_wpuntexturize( $text );
+}
+add_action( 'wpuntexturize', 'wpuntexturize' ); // Deprecated
+endif;
 
 ?>

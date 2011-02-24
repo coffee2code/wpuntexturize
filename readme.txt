@@ -4,8 +4,8 @@ Donate link: http://coffee2code.com/donate
 Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
 Tested up to: 3.1
-Stable tag: 1.3.2
-Version: 1.3.2
+Stable tag: 1.4
+Version: 1.4
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -42,6 +42,8 @@ Despite the unfortunately misleading name, this plugin is NOT the antithesis of 
 
 This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
 
+Links: [Plugin Homepage]:(http://coffee2code.com/wp-plugins/wpuntexturize/) | [Author Homepage]:(http://coffee2code.com)
+
 
 == Installation ==
 
@@ -64,9 +66,9 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 
 The plugin is further customizable via two filters. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
 
-= wpuntexturize (filter) =
+= c2c_wpuntexturize (filter) =
 
-The 'wpuntexturize' filter allows you to use an alternative approach to safely invoke `wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
+The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
 Arguments:
 
@@ -76,11 +78,11 @@ Example:
 
 Instead of:
 
-`<?php echo wpuntexturize( $mytext ); ?>`
+`<?php echo c2c_wpuntexturize( $mytext ); ?>`
 
 Do:
 
-`<?php echo do_action( 'wpuntexturize', $mytext ); ?>`
+`<?php echo do_action( 'c2c_wpuntexturize', $mytext ); ?>`
 
 = wpuntexturize_filters (filter) =
 
@@ -100,6 +102,11 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Changelog ==
+
+= 1.4 =
+* Rename `wpuntexturize()` to `c2c_wpuntexturize()` (but maintain a deprecated version for backwards compatibility)
+* Rename file `wpuntexturize` to `c2c_wpuntexturize` (but maintain a deprecated version for backwards compatibility)
+* Add link to plugin homepage in readme.txt description
 
 = 1.3.2 =
 * Note compatibility through WP 3.1+
@@ -149,6 +156,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.4 =
+Minor update: deprecated 'wpuntexturize()' in favor of 'c2c_wpuntexturize()'; renamed action from 'wpuntexturize' to 'c2c_wpuntexturize'; added link to plugin homepage in readme.txt
 
 = 1.3.2 =
 Trivial update: noted compatibility through WP 3.1+ and updated copyright date
