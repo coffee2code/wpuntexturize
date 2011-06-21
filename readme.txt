@@ -3,9 +3,9 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
 Requires at least: 1.5
-Tested up to: 3.1
-Stable tag: 1.4
-Version: 1.4
+Tested up to: 3.2
+Stable tag: 1.4.1
+Version: 1.4.1
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -42,7 +42,7 @@ Despite the unfortunately misleading name, this plugin is NOT the antithesis of 
 
 This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
 
-Links: [Plugin Homepage]:(http://coffee2code.com/wp-plugins/wpuntexturize/) | [Author Homepage]:(http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -103,6 +103,10 @@ function more_wpuntexturize_filters( $filters ) {
 
 == Changelog ==
 
+= 1.4.1 =
+* Note compatibility through WP 3.2+
+* Fix plugin homepage and author links in description in readme.txt
+
 = 1.4 =
 * Rename `wpuntexturize()` to `c2c_wpuntexturize()` (but maintain a deprecated version for backwards compatibility)
 * Rename file `wpuntexturize` to `c2c_wpuntexturize` (but maintain a deprecated version for backwards compatibility)
@@ -156,6 +160,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Trivial update: noted compatibility through WP 3.2+ and fixed link in description in readme.txt
 
 = 1.4 =
 Minor update: deprecated 'wpuntexturize()' in favor of 'c2c_wpuntexturize()'; renamed action from 'wpuntexturize' to 'c2c_wpuntexturize'; added link to plugin homepage in readme.txt
