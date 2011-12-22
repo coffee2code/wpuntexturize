@@ -2,17 +2,17 @@
 /**
  * @package wpuntexturize
  * @author Scott Reilly
- * @version 1.4.1
+ * @version 1.4.2
  */
 /*
 Plugin Name: wpuntexturize
-Version: 1.4.1
-Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize
+Version: 1.4.2
+Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize/
 Author: Scott Reilly
-Author URI: http://coffee2code.com
+Author URI: http://coffee2code.com/
 Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
-Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+, 3.2+.
+Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+, 3.2+, 3.3+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -21,7 +21,7 @@ Compatible with WordPress 1.5+, 2.0+, 2.1+, 2.2+, 2.3+, 2.5+, 2.6+, 2.7+, 2.8+, 
 */
 
 /*
-Copyright (c) 2004-2011 by Scott Reilly (aka coffee2code)
+Copyright (c) 2004-2012 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
@@ -37,7 +37,7 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 
-if ( !function_exists( 'c2c_wpuntexturize' ) ) :
+if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 /**
  * Prevent WordPress from displaying single and double quotation marks as
  * their curly alternatives.
@@ -60,7 +60,7 @@ add_action( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
 endif;
 
 
-if ( !function_exists( 'c2c_init_wpuntexturize' ) ) :
+if ( ! function_exists( 'c2c_init_wpuntexturize' ) ) :
 /**
  * Initialize wpuntexturize, primarily to register it against filters
  *
@@ -78,7 +78,7 @@ endif;
 add_action( 'init', 'c2c_init_wpuntexturize' );
 
 
-if ( !function_exists( 'wpuntexturize' ) ) :
+if ( ! function_exists( 'wpuntexturize' ) ) :
 /**
  * Prevent WordPress from displaying single and double quotation marks as
  * their curly alternatives.
