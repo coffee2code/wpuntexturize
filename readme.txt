@@ -1,46 +1,22 @@
 === wpuntexturize ===
 Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
-Tags: quotes, curly, substitutions, wptexturize, post, content, coffee2code
+Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coffee2code
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 3.3
-Stable tag: 1.4.2
-Version: 1.4.2
+Tested up to: 3.4
+Stable tag: 1.4.3
+Version: 1.4.3
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
 
 == Description ==
 
-Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
+By default, WordPress converts single and double quotation marks into their curly alternatives. This plugin prevents that from happening, so you can enjoy your quotation marks in their non-curly glory.
 
-Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions.
-
-*Advanced:*  The plugin performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default.  This list comprises:
-
-* comment_author
-* term_name
-* link_name
-* link_description
-* link_notes
-* bloginfo
-* wp_title
-* widget_title
-* single_post_title
-* single_cat_title
-* single_tag_title
-* single_month_title
-* nav_menu_attr_title
-* nav_menu_description
-* term_description
-* the_title
-* the_content
-* the_excerpt
-* comment_text
-* list_cats
-* widget_text
-
-This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
+*Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
 Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
@@ -57,9 +33,15 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Pl
 
 This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent WordPress from making any other character and string substitutions.
 
-= What text does this plugin modify (aka filter)? =
+= What text does this plugin modify/filter? =
 
-This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.  See the description for a complete list of filters that are unfiltered.
+This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.
+
+More specifically, it performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default.  This list comprises:
+
+comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, the_title, the_content, the_excerpt, comment_text, list_cats, widget_text
+
+This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
 
 
 == Filters ==
@@ -102,6 +84,15 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Changelog ==
+
+= 1.4.3 =
+* Re-license as GPLv2 or later (from X11)
+* Add 'License' and 'License URI' header tags to readme.txt and plugin file
+* Add banner image for plugin page
+* Remove ending PHP close tag
+* Minor code reformatting (indentation)
+* Miscellaneous readme.txt changes
+* Note compatibility through WP 3.4+
 
 = 1.4.2 =
 * Note compatibility through WP 3.3+
@@ -166,6 +157,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.4.3 =
+Trivial update: noted compatibility through WP 3.4+; explicitly stated license
 
 = 1.4.2 =
 Trivial update: noted compatibility through WP 3.3+
