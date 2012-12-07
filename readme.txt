@@ -5,9 +5,9 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 3.4
-Stable tag: 1.4.3
-Version: 1.4.3
+Tested up to: 3.5
+Stable tag: 1.4.4
+Version: 1.4.4
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -85,6 +85,10 @@ function more_wpuntexturize_filters( $filters ) {
 
 == Changelog ==
 
+= 1.4.4 =
+* Note compatibility through WP 3.5+
+* Update copyright date (2013)
+
 = 1.4.3 =
 * Re-license as GPLv2 or later (from X11)
 * Add 'License' and 'License URI' header tags to readme.txt and plugin file
@@ -157,6 +161,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.4.4 =
+Trivial update: noted compatibility through WP 3.5+ and updated copyright date
 
 = 1.4.3 =
 Trivial update: noted compatibility through WP 3.4+; explicitly stated license

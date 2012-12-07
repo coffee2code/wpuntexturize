@@ -2,11 +2,11 @@
 /**
  * @package wpuntexturize
  * @author Scott Reilly
- * @version 1.4.3
+ * @version 1.4.4
  */
 /*
 Plugin Name: wpuntexturize
-Version: 1.4.3
+Version: 1.4.4
 Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize/
 Author: Scott Reilly
 Author URI: http://coffee2code.com/
@@ -14,7 +14,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
-Compatible with WordPress 1.5+ through 3.4+.
+Compatible with WordPress 1.5+ through 3.5+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -23,7 +23,7 @@ Compatible with WordPress 1.5+ through 3.4+.
 */
 
 /*
-	Copyright (c) 2004-2012 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2004-2013 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	 * @return string The converted text
 	 */
 	function c2c_wpuntexturize( $text ) {
-		$char_codes = array( '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;' );
+		$char_codes   = array( '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;' );
 		$replacements = array( "'", "'", '"', '"', "'", '"' );
 		return str_replace( $char_codes, $replacements, $text );
 	}
