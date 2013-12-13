@@ -1,13 +1,12 @@
 === wpuntexturize ===
 Contributors: coffee2code
-Donate link: http://coffee2code.com/donate
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522
 Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 3.5
-Stable tag: 1.4.4
-Version: 1.4.4
+Tested up to: 3.8
+Stable tag: 1.5
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -18,7 +17,7 @@ By default, WordPress converts single and double quotation marks into their curl
 
 *Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](http://wordpress.org/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -46,11 +45,11 @@ This complete list can be filtered via wpuntexturize's own filter, `wpuntexturiz
 
 == Filters ==
 
-The plugin is further customizable via two filters. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
+The plugin is further customizable via two hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
 
-= c2c_wpuntexturize (filter) =
+= c2c_wpuntexturize (action) =
 
-The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
+The 'c2c_wpuntexturize' action allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
 Arguments:
 
@@ -85,6 +84,14 @@ function more_wpuntexturize_filters( $filters ) {
 
 == Changelog ==
 
+= 1.5 (2013-12-13) =
+* Add `c2c_wpuntexturize_get_default_filters()` and change `c2c_init_wpuntexturize()` to use it
+* Add unit tests
+* Minor code formatting tweak (add curly braces)
+* Note compatibility through WP 3.8+
+* Update copyright date (2014)
+* Change donate link
+
 = 1.4.4 =
 * Note compatibility through WP 3.5+
 * Update copyright date (2013)
@@ -110,7 +117,6 @@ function more_wpuntexturize_filters( $filters ) {
 
 = 1.4 =
 * Rename `wpuntexturize()` to `c2c_wpuntexturize()` (but maintain a deprecated version for backwards compatibility)
-* Rename file `wpuntexturize` to `c2c_wpuntexturize` (but maintain a deprecated version for backwards compatibility)
 * Add link to plugin homepage in readme.txt description
 
 = 1.3.2 =
@@ -161,6 +167,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.5 =
+Minor update: added unit tests; added helper function; noted compatibility through WP 3.8+ and updated copyright date
 
 = 1.4.4 =
 Trivial update: noted compatibility through WP 3.5+ and updated copyright date

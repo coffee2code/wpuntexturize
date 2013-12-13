@@ -2,11 +2,11 @@
 /**
  * @package wpuntexturize
  * @author Scott Reilly
- * @version 1.4.4
+ * @version 1.5
  */
 /*
 Plugin Name: wpuntexturize
-Version: 1.4.4
+Version: 1.5
 Plugin URI: http://coffee2code.com/wp-plugins/wpuntexturize/
 Author: Scott Reilly
 Author URI: http://coffee2code.com/
@@ -14,7 +14,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
-Compatible with WordPress 1.5+ through 3.5+.
+Compatible with WordPress 1.5+ through 3.8+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -23,7 +23,7 @@ Compatible with WordPress 1.5+ through 3.5+.
 */
 
 /*
-	Copyright (c) 2004-2013 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2004-2014 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -71,16 +71,26 @@ if ( ! function_exists( 'c2c_init_wpuntexturize' ) ) :
 	 * @return void
 	 */
 	function c2c_init_wpuntexturize() {
-		$filters = (array) apply_filters( 'wpuntexturize_filters', array(
-		 'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
-		 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
-		 'term_description', 'the_title', 'the_content', 'the_excerpt', 'comment_text', 'list_cats', 'widget_text' ) );
-		foreach( $filters as $filter )
+		foreach( c2c_wpuntexturize_get_default_filters() as $filter ) {
 			add_filter( $filter, 'c2c_wpuntexturize', 11 );
+		}
 	}
 	add_action( 'init', 'c2c_init_wpuntexturize' );
 endif;
 
+if ( ! function_exists( 'c2c_wpuntexturize_get_default_filters' ) ) :
+	/**
+	 * Gets the list of filters that wpuntexturize() is applied to by default.
+	 *
+	 * @return array
+	 */
+	function c2c_wpuntexturize_get_default_filters() {
+		return (array) apply_filters( 'wpuntexturize_filters', array(
+		 'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
+		 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
+		 'term_description', 'the_title', 'the_content', 'the_excerpt', 'comment_text', 'list_cats', 'widget_text' ) );
+	}
+endif;
 
 if ( ! function_exists( 'wpuntexturize' ) ) :
 	/**
