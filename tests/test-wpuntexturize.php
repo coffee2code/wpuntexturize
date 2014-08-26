@@ -3,19 +3,6 @@
 class WPUntexturize_Test extends WP_UnitTestCase {
 
 	/**
-	 * Loads post as if in loop.
-	 *
-	 * @param int $post_id Post ID.
-	 */
-	function load_post( $post_id ) {
-		global $post;
-		$post = get_post( $post_id );
-		setup_postdata( $post );
-		return $post;
-	}
-
-
-	/**
 	 *
 	 * DATA PROVIDERS
 	 *

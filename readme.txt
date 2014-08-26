@@ -5,8 +5,8 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 3.8
-Stable tag: 1.5
+Tested up to: 4.0
+Stable tag: 1.5.1
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -17,7 +17,7 @@ By default, WordPress converts single and double quotation marks into their curl
 
 *Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](http://wordpress.org/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](https://wordpress.org/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -41,6 +41,10 @@ More specifically, it performs a wpuntexturize on every filter that WordPress ap
 comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, the_title, the_content, the_excerpt, comment_text, list_cats, widget_text
 
 This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
+
+= Does this plugin include unit tests? =
+
+Yes.
 
 
 == Filters ==
@@ -83,6 +87,14 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Changelog ==
+
+= 1.5.1 (2014-08-25) =
+* Die early if script is directly invoked
+* Remove unnecessary function from unit tests
+* Minor plugin header reformatting
+* Change documentation links to wp.org to be https
+* Note compatibility through WP 4.0+
+* Add plugin icon
 
 = 1.5 (2013-12-13) =
 * Add `c2c_wpuntexturize_get_default_filters()` and change `c2c_init_wpuntexturize()` to use it
@@ -167,6 +179,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.5.1 =
+Trivial update: noted compatibility through WP 4.0+; added plugin icon.
 
 = 1.5 =
 Minor update: added unit tests; added helper function; noted compatibility through WP 3.8+ and updated copyright date
