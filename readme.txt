@@ -5,8 +5,8 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 4.1
-Stable tag: 1.5.2
+Tested up to: 4.3
+Stable tag: 1.5.3
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -51,9 +51,9 @@ Yes.
 
 The plugin is further customizable via two hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
 
-= c2c_wpuntexturize (action) =
+= c2c_wpuntexturize (filter) =
 
-The 'c2c_wpuntexturize' action allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
+The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
 Arguments:
 
@@ -67,7 +67,7 @@ Instead of:
 
 Do:
 
-`<?php echo do_action( 'c2c_wpuntexturize', $mytext ); ?>`
+`<?php echo apply_filters( 'c2c_wpuntexturize', $mytext ); ?>`
 
 = wpuntexturize_filters (filter) =
 
@@ -79,14 +79,29 @@ Arguments:
 
 Example:
 
-`add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
+`
+/**
+ * Add additional filters to get wpuntexturize'd.
+ *
+ * @param array $filters Filters that will receive the wpuntexturize treatement.
+ * @return array
+ */
 function more_wpuntexturize_filters( $filters ) {
 	$filters[] = 'event_description';
 	return $filters;
-}`
+}
+add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
+`
 
 
 == Changelog ==
+
+= 1.5.3 (2015-08-26) =
+* Bugfix: 'c2c_wpuntexturize' hook should be a filter and not an action
+* Update: Correct documentation regarding 'c2c_wpuntexturize' hook
+* Update: Add more unit tests for indirect hook invocation method
+* Update: Add inline documentation to readme code example
+* Update: Note compatibility through WP 4.3+
 
 = 1.5.2 (2015-02-10) =
 * Note compatibility through WP 4.1+
@@ -183,6 +198,9 @@ function more_wpuntexturize_filters( $filters ) {
 
 
 == Upgrade Notice ==
+
+= 1.5.3 =
+Trivial update: bugfix for very rare usage technique; noted compatibility through WP 4.3+
 
 = 1.5.2 =
 Trivial update: noted compatibility through WP 4.1+ and updated copyright date

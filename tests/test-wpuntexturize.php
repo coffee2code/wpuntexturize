@@ -2,7 +2,7 @@
 
 class WPUntexturize_Test extends WP_UnitTestCase {
 
-	/**
+	/*
 	 *
 	 * DATA PROVIDERS
 	 *
@@ -33,7 +33,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 
 	static function default_filters() {
 		$filters = c2c_wpuntexturize_get_default_filters();
-		return array_map( function( $x)  { return array( $x ); }, $filters );
+		return array_map( function( $x )  { return array( $x ); }, $filters );
 	}
 
 	static function char_codes() {
@@ -48,7 +48,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 
-	/**
+	/*
 	 *
 	 * TESTS
 	 *
@@ -63,11 +63,26 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @dataProvider strings_containing_non_curly_quotes
+	 */
+	function test_indirect_invocation_retains_non_curly_quotes( $str ) {
+		$this->assertEquals( $str, apply_filters( 'c2c_wpuntexturize', $str ) );
+	}
+
+	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
 	function test_direct_invocation_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
+	}
+
+	/**
+	 * @dataProvider strings_containing_curly_quotes
+	 */
+	function test_indirect_invocation_uncurlies_curly_quotes( $str ) {
+		list( $uncurly, $curly ) = $str;
+		$this->assertEquals( $uncurly, apply_filters( 'c2c_wpuntexturize', $curly ) );
 	}
 
 	/**
@@ -102,10 +117,23 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test deprecated function, at least while it's still present.
+	 *
+	 * @dataProvider strings_containing_curly_quotes
+	 *
+	 * @expectedDeprecated wpuntexturize
+	 */
+	function test_deprecated_filter_invocation_uncurlies_curly_quotes( $str ) {
+		list( $uncurly, $curly ) = $str;
+		$this->assertEquals( $uncurly, apply_filters( 'wpuntexturize', $curly ) );
+	}
+
+	/**
 	 * @dataProvider default_filters
 	 */
 	function test_wpuntexturize_is_hooked_to_all_default_filters( $filter ) {
 		$default_hook_priority = 11;
 		$this->assertEquals( $default_hook_priority, has_filter( $filter, 'c2c_wpuntexturize' ) );
 	}
+
 }
