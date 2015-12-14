@@ -5,8 +5,8 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 4.3
-Stable tag: 1.5.3
+Tested up to: 4.4
+Stable tag: 1.5.4
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -95,6 +95,12 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 
 
 == Changelog ==
+
+= 1.5.4 () =
+* Change: Note compatibility through WP 4.4+.
+* Change: Explicitly declare methods in unit tests as public.
+* Change: Update copyright date (2016).
+* Add: Create empty index.php to prevent files from being listed if web server has enabled directory listings.
 
 = 1.5.3 (2015-08-26) =
 * Bugfix: 'c2c_wpuntexturize' hook should be a filter and not an action

@@ -1,15 +1,17 @@
 <?php
 
+defined( 'ABSPATH' ) or die();
+
 class WPUntexturize_Test extends WP_UnitTestCase {
 
-	/*
-	 *
-	 * DATA PROVIDERS
-	 *
-	 */
+	//
+	//
+	// DATA PROVIDERS
+	//
+	//
 
 
-	static function strings_containing_non_curly_quotes() {
+	public static function strings_containing_non_curly_quotes() {
 		return array(
 			array( '"This string is double-quoted."' ),
 			array( "'This string is single-quoted.'" ),
@@ -20,7 +22,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		);
 	}
 
-	static function strings_containing_curly_quotes() {
+	public static function strings_containing_curly_quotes() {
 		return array(
 			array( array( '"This string is double-quoted."', '&#8220;This string is double-quoted.&#8221;' ) ),
 			array( array( "'This string is single-quoted.'", "&#8216;This string is single-quoted.&#8217;" ) ),
@@ -31,12 +33,12 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		);
 	}
 
-	static function default_filters() {
+	public static function default_filters() {
 		$filters = c2c_wpuntexturize_get_default_filters();
 		return array_map( function( $x )  { return array( $x ); }, $filters );
 	}
 
-	static function char_codes() {
+	public static function char_codes() {
 		return array(
 			array( array( "'", '&#8216;' ) ),
 			array( array( "'", '&#8217;' ) ),
@@ -48,31 +50,31 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 
-	/*
-	 *
-	 * TESTS
-	 *
-	 */
+	//
+	//
+	// TESTS
+	//
+	//
 
 
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */
-	function test_direct_invocation_retains_non_curly_quotes( $str ) {
+	public function test_direct_invocation_retains_non_curly_quotes( $str ) {
 		$this->assertEquals( $str, c2c_wpuntexturize( $str ) );
 	}
 
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */
-	function test_indirect_invocation_retains_non_curly_quotes( $str ) {
+	public function test_indirect_invocation_retains_non_curly_quotes( $str ) {
 		$this->assertEquals( $str, apply_filters( 'c2c_wpuntexturize', $str ) );
 	}
 
 	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
-	function test_direct_invocation_uncurlies_curly_quotes( $str ) {
+	public function test_direct_invocation_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
 	}
@@ -80,7 +82,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
-	function test_indirect_invocation_uncurlies_curly_quotes( $str ) {
+	public function test_indirect_invocation_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, apply_filters( 'c2c_wpuntexturize', $curly ) );
 	}
@@ -88,7 +90,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider char_codes
 	 */
-	function test_direct_invocation_replace_quote_html_entities( $str ) {
+	public function test_direct_invocation_replace_quote_html_entities( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
 	}
@@ -100,7 +102,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	 *
 	 * @expectedDeprecated wpuntexturize
 	 */
-	function test_deprecated_function_retains_non_curly_quotes( $str ) {
+	public function test_deprecated_function_retains_non_curly_quotes( $str ) {
 		$this->assertEquals( $str, wpuntexturize( $str ) );
 	}
 
@@ -111,7 +113,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	 *
 	 * @expectedDeprecated wpuntexturize
 	 */
-	function test_deprecated_function_uncurlies_curly_quotes( $str ) {
+	public function test_deprecated_function_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, wpuntexturize( $curly ) );
 	}
@@ -123,7 +125,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	 *
 	 * @expectedDeprecated wpuntexturize
 	 */
-	function test_deprecated_filter_invocation_uncurlies_curly_quotes( $str ) {
+	public function test_deprecated_filter_invocation_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, apply_filters( 'wpuntexturize', $curly ) );
 	}
@@ -131,7 +133,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider default_filters
 	 */
-	function test_wpuntexturize_is_hooked_to_all_default_filters( $filter ) {
+	public function test_wpuntexturize_is_hooked_to_all_default_filters( $filter ) {
 		$default_hook_priority = 11;
 		$this->assertEquals( $default_hook_priority, has_filter( $filter, 'c2c_wpuntexturize' ) );
 	}
