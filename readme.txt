@@ -96,7 +96,8 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 
 == Changelog ==
 
-= 1.5.4 () =
+= 1.5.4 (2015-12-14) =
+* Add: Untexturize newly introduced core filter 'the_excerpt_embed'.
 * Change: Note compatibility through WP 4.4+.
 * Change: Explicitly declare methods in unit tests as public.
 * Change: Update copyright date (2016).
@@ -204,6 +205,9 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 
 
 == Upgrade Notice ==
+
+= 1.5.4 =
+Trivial update: minor unit test tweaks, noted compatibility through WP 4.4+, and updated copyright date
 
 = 1.5.3 =
 Trivial update: bugfix for very rare usage technique; noted compatibility through WP 4.3+
