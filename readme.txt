@@ -22,7 +22,7 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Pl
 
 == Installation ==
 
-1. Unzip `wpuntexturize.zip` inside the `/wp-content/plugins/` directory (or install via the built-in WordPress plugin installer)
+1. Install via the built-in WordPress plugin installer. Or download and unzip `wpuntexturize.zip` inside the plugins directory for your site (typically `wp-content/plugins/`)
 1. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 
@@ -98,6 +98,7 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 
 = () =
 * Change: Prevent web invocation of unit test bootstrap.php.
+* Change: Tweak installation instructions.
 
 = 1.5.4 (2015-12-14) =
 * Add: Untexturize newly introduced core filter 'the_excerpt_embed'.
