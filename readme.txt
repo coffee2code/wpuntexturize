@@ -96,6 +96,9 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 
 == Changelog ==
 
+= () =
+* Change: Prevent web invocation of unit test bootstrap.php.
+
 = 1.5.4 (2015-12-14) =
 * Add: Untexturize newly introduced core filter 'the_excerpt_embed'.
 * Change: Note compatibility through WP 4.4+.
