@@ -97,6 +97,8 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 == Changelog ==
 
 = () =
+* New: Convert single low 9 quotation mark (`&#8218;`) to single quote `'`.
+* New: Convert double low 9 quotation mark (`&#8222;`) to double quote `"`.
 * Change: Prevent web invocation of unit test bootstrap.php.
 * Change: Tweak installation instructions.
 

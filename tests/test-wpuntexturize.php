@@ -30,6 +30,8 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 			array( array( 'The yarn is 9" long.', 'The yarn is 9&#8243; long.' ) ),
 			array( array( "I can't stand curly quotes.", "I can&#8217;t stand curly quotes." ) ),
 			array( array( "It 'twas time the curly quotes got uncurled.", "It &#8217;twas time the curly quotes got uncurled." ) ),
+			array( array( "She said 'free my cat' to me.", 'She said &#8218;free my cat&#8217; to me.' ) ),
+			array( array( 'She said "free my cat" to me.', 'She said &#8222;free my cat&#8221; to me.' ) ),
 		);
 	}
 
@@ -42,8 +44,10 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		return array(
 			array( array( "'", '&#8216;' ) ),
 			array( array( "'", '&#8217;' ) ),
+			array( array( "'", '&#8218;' ) ),
 			array( array( '"', '&#8220;' ) ),
 			array( array( '"', '&#8221;' ) ),
+			array( array( '"', '&#8222;' ) ),
 			array( array( "'", '&#8242;' ) ),
 			array( array( '"', '&#8243;' ) ),
 		);

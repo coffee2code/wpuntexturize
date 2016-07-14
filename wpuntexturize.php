@@ -55,9 +55,18 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	 * @return string The converted text
 	 */
 	function c2c_wpuntexturize( $text ) {
-		$char_codes   = array( '&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;' );
-		$replacements = array( "'", "'", '"', '"', "'", '"' );
-		return str_replace( $char_codes, $replacements, $text );
+		$replacements = array(
+			'&#8216;' => "'", // left single quotation mark
+			'&#8217;' => "'", // right single quotation mark
+			'&#8218;' => "'", // single low 9 quotation mark
+			'&#8220;' => '"', // left double quotation mark
+			'&#8221;' => '"', // right double quotation mark
+			'&#8222;' => '"', // double low 9 quotation mark
+			'&#8242;' => "'", // prime mark
+			'&#8243;' => '"', // double prime mark
+		);
+
+		return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
 	}
 	add_filter( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
 endif;
