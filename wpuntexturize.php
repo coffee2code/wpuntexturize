@@ -5,6 +5,7 @@
  * Plugin URI:  http://coffee2code.com/wp-plugins/wpuntexturize/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
+ * Text Domain: wpuntexturize
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
