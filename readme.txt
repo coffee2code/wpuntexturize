@@ -49,7 +49,7 @@ Yes.
 
 == Filters ==
 
-The plugin is further customizable via two hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
+The plugin is further customizable via three hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
 
 = c2c_wpuntexturize (filter) =
 
@@ -93,10 +93,41 @@ function more_wpuntexturize_filters( $filters ) {
 add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 `
 
+= c2c_wpuntexturize_replacements (filter) =
+
+The 'c2c_wpuntexturize_replacements' filter allows you to customize the character replacements handled by the plugin.
+
+Arguments:
+
+* array $replacements : Array where the keys are the characters to be replace, and the values are their respective replacements.
+
+Example:
+
+`
+/**
+ * Add and remove to/from default wpuntexturize replacements.
+ *
+ * @param array $replacements
+ * @return array
+ */
+function c2c_change_wpuntexturize_replacements( $replacements ) {
+	// Remove low 9 quotation mark replacements.
+	unset( $replacements['&#8218;'] );
+	unset( $replacements['&#8222;'] );
+
+	// Replace copyright.
+	$replacements['&copy;'] = '(c)';
+
+	return $replacements;
+}
+add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacements' );
+`
+
 
 == Changelog ==
 
 = () =
+* New: Add filter 'c2c_wpuntexturize_replacements' for customizing the replacements.
 * New: Convert single low 9 quotation mark (`&#8218;`) to single quote `'`.
 * New: Convert double low 9 quotation mark (`&#8222;`) to double quote `"`.
 * New: Add 'Text Domain' to plugin header.

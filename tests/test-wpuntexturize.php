@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) or die();
 
 class WPUntexturize_Test extends WP_UnitTestCase {
 
+	public function tearDown() {
+		parent::tearDown();
+		// Ensure the filter gets removed
+		remove_filter( 'c2c_wpuntexturize_replacements', array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
+	}
+
 	//
 	//
 	// DATA PROVIDERS
@@ -53,6 +59,10 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		);
 	}
 
+	public static function filter_c2c_wpuntexturize_replacements( $replacements ) {
+		$replacements['&copy;'] = '(c)';
+		return $replacements;
+	}
 
 	//
 	//
@@ -140,6 +150,12 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	public function test_wpuntexturize_is_hooked_to_all_default_filters( $filter ) {
 		$default_hook_priority = 11;
 		$this->assertEquals( $default_hook_priority, has_filter( $filter, 'c2c_wpuntexturize' ) );
+	}
+
+	public function test_filter_c2c_wpuntexturize_replacements() {
+		add_filter( 'c2c_wpuntexturize_replacements', array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
+
+		$this->assertEquals( '(c) 2017', c2c_wpuntexturize( '&copy; 2017' ) );
 	}
 
 }

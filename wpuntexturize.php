@@ -67,6 +67,8 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 			'&#8243;' => '"', // double prime mark
 		);
 
+		$replacements = (array) apply_filters( 'c2c_wpuntexturize_replacements', $replacements );
+
 		return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
 	}
 	add_filter( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
