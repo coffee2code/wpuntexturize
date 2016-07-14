@@ -9,7 +9,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Description: Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
  *
- * Compatible with WordPress 1.5+ through 4.4+.
+ * Compatible with WordPress 1.5+ through 4.6+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.

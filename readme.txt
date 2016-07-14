@@ -5,7 +5,7 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 4.4
+Tested up to: 4.6
 Stable tag: 1.5.4
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
@@ -101,6 +101,7 @@ add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 * New: Convert double low 9 quotation mark (`&#8222;`) to double quote `"`.
 * Change: Prevent web invocation of unit test bootstrap.php.
 * Change: Tweak installation instructions.
+* Change: Note compatibility through WP 4.6+.
 
 = 1.5.4 (2015-12-14) =
 * Add: Untexturize newly introduced core filter 'the_excerpt_embed'.
