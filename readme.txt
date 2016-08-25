@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 4.6
-Stable tag: 1.5.4
+Stable tag: 1.6
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -126,7 +126,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 == Changelog ==
 
-= () =
+= 1.6 (2016-07-14) =
 * New: Add filter 'c2c_wpuntexturize_replacements' for customizing the replacements.
 * New: Convert single low 9 quotation mark (`&#8218;`) to single quote `'`.
 * New: Convert double low 9 quotation mark (`&#8222;`) to double quote `"`.
@@ -244,6 +244,9 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 
 == Upgrade Notice ==
+
+= 1.6 =
+Minor update: convert single and double low 9 quotation marks; noted compatibility through WP 4.6+
 
 = 1.5.4 =
 Trivial update: minor unit test tweaks, noted compatibility through WP 4.4+, and updated copyright date
