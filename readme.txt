@@ -128,6 +128,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 = 1.6.1 () =
 * New: Add LICENSE file.
+* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Note compatibility through WP 4.7+.
 * Change: Update copyright date (2017).
 
