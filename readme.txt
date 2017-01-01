@@ -126,6 +126,9 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 == Changelog ==
 
+= 1.6.1 () =
+* New: Add LICENSE file.
+
 = 1.6 (2016-07-14) =
 * New: Add filter 'c2c_wpuntexturize_replacements' for customizing the replacements.
 * New: Convert single low 9 quotation mark (`&#8218;`) to single quote `'`.
