@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 4.7
-Stable tag: 1.6
+Stable tag: 1.6.1
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -126,7 +126,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 == Changelog ==
 
-= 1.6.1 () =
+= 1.6.1 (2017-01-01) =
 * New: Add LICENSE file.
 * Change: Enable more error ourput for unit tests.
 * Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
@@ -251,6 +251,9 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 
 == Upgrade Notice ==
+
+= 1.6.1 =
+Trivial update: updated unit test bootstrap file, noted compatibility through WP 4.7+, and updated copyright date
 
 = 1.6 =
 Minor update: convert single and double low 9 quotation marks; noted compatibility through WP 4.6+
