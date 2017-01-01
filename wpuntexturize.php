@@ -78,8 +78,6 @@ endif;
 if ( ! function_exists( 'c2c_init_wpuntexturize' ) ) :
 	/**
 	 * Initialize wpuntexturize, primarily to register it against filters
-	 *
-	 * @return void
 	 */
 	function c2c_init_wpuntexturize() {
 		foreach( c2c_wpuntexturize_get_default_filters() as $filter ) {
