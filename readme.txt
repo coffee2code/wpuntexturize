@@ -128,6 +128,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 = 1.6.1 () =
 * New: Add LICENSE file.
+* Change: Update copyright date (2017).
 
 = 1.6 (2016-07-14) =
 * New: Add filter 'c2c_wpuntexturize_replacements' for customizing the replacements.

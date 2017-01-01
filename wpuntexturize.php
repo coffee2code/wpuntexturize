@@ -18,11 +18,11 @@
  *
  * @package wpuntexturize
  * @author  Scott Reilly
- * @version 1.6
+ * @version 1.6.1
  */
 
 /*
-	Copyright (c) 2004-2016 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2004-2017 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
