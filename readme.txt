@@ -17,7 +17,7 @@ By default, WordPress converts single and double quotation marks into their curl
 
 *Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](https://wordpress.org/plugins/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](https://wordpress.org/plugins/wpuntexturize/) | [GitHub](https://github.com/coffe2code/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -128,6 +128,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 = 1.6.2 () =
 * New: Add README.md
+* Change: Add GitHub link to readme
 * Change: Minor readme tweak regarding suggested location for custom code
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
