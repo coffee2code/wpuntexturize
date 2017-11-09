@@ -49,7 +49,7 @@ Yes.
 
 == Filters ==
 
-The plugin is further customizable via three hooks. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
+The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 = c2c_wpuntexturize (filter) =
 
@@ -127,6 +127,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 == Changelog ==
 
 = 1.6.2 () =
+* Change: Minor readme tweak regarding suggested location for custom code
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 * Change: Minor whitespace tweaks in unit test bootstrap
