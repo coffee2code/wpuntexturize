@@ -128,6 +128,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 = 1.6.2 () =
 * Change: Note compatibility through WP 4.9+
+* Change: Update copyright date (2018)
 
 = 1.6.1 (2017-01-01) =
 * New: Add LICENSE file.
