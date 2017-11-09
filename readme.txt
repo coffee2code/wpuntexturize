@@ -127,6 +127,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 == Changelog ==
 
 = 1.6.2 () =
+* New: Add README.md
 * Change: Minor readme tweak regarding suggested location for custom code
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
