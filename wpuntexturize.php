@@ -67,6 +67,14 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 			'&#8243;' => '"', // double prime mark
 		);
 
+		/**
+		 * Filters the character replacements.
+		 *
+		 * @since 1.6.0
+		 *
+		 * @param array $replacements Array of replacements; keys are text to replace
+		 *                            and values are the text for the replacements.
+		 */
 		$replacements = (array) apply_filters( 'c2c_wpuntexturize_replacements', $replacements );
 
 		return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
@@ -94,6 +102,13 @@ if ( ! function_exists( 'c2c_wpuntexturize_get_default_filters' ) ) :
 	 * @return array
 	 */
 	function c2c_wpuntexturize_get_default_filters() {
+		/**
+		 * Filters the hooks to be filtered with wpuntexturize.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param array $filters Array of filter names.
+		 */
 		return (array) apply_filters( 'wpuntexturize_filters', array(
 		 'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
 		 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
