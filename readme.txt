@@ -127,6 +127,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 == Changelog ==
 
 = () =
+* Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 
 = 1.6.2 (2017-11-09) =
