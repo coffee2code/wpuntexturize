@@ -47,7 +47,7 @@ This complete list can be filtered via wpuntexturize's own filter, `wpuntexturiz
 Yes.
 
 
-== Filters ==
+== Hooks ==
 
 The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
@@ -127,6 +127,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 == Changelog ==
 
 = () =
+* Change: Rename readme.txt section from 'Filters' to 'Hooks'
 * Change: Note compatibility through WP 5.1+
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
