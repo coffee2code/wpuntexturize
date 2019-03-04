@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 5.1
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -126,7 +126,7 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 == Changelog ==
 
-= () =
+= 1.6.3 (2019-03-04) =
 * New: Add inline documentation for hooks
 * Change: Rename readme.txt section from 'Filters' to 'Hooks'
 * Change: Note compatibility through WP 5.1+
@@ -266,6 +266,9 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 
 == Upgrade Notice ==
+
+= 1.6.3 =
+Trivial update: aded inline documentation for hooks, noted compatibility through WP 5.1+, updated copyright date (2019)
 
 = 1.6.2 =
 Trivial update: noted compatibility through WP 4.9+; added README.md; added GitHub link to readme; updated copyright date (2018)
