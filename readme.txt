@@ -5,7 +5,7 @@ Tags: quotes, curly, substitutions, wptexturize, formatting, post, content, coff
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 1.6.3
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
