@@ -65,6 +65,10 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 			'&#8222;' => '"', // double low 9 quotation mark
 			'&#8242;' => "'", // prime mark
 			'&#8243;' => '"', // double prime mark
+			'“'       => '"', // left double curly quotation mark
+			'”'       => '"', // right double curly quotation mark
+			'‘'       => "'", // left double curly quotation mark
+			'’'       => "'", // right double curly quotation mark
 		);
 
 		/**

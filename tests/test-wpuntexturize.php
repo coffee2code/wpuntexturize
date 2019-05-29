@@ -38,6 +38,8 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 			array( array( "It 'twas time the curly quotes got uncurled.", "It &#8217;twas time the curly quotes got uncurled." ) ),
 			array( array( "She said 'free my cat' to me.", 'She said &#8218;free my cat&#8217; to me.' ) ),
 			array( array( 'She said "free my cat" to me.', 'She said &#8222;free my cat&#8221; to me.' ) ),
+			array( array( "'This is single quoted,' I said.", "‘This is single quoted,’ I said." ) ),
+			array( array( '"This is double quoted," I said.', '“This is double quoted,” I said.' ) ),
 		);
 	}
 
