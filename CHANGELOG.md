@@ -6,6 +6,7 @@
 * Change: Update unit test install script and bootstrap to use latest WP unit test repo
 * Change: Note compatibility through WP 5.2+
 * Fix: Correct typo in GitHub URL
+* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
 * Change: Split paragraph in README.md's "Support" section into two
 
 ## 1.6.3 _(2019-03-04)_

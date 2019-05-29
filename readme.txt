@@ -51,7 +51,7 @@ Yes.
 
 The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
-= c2c_wpuntexturize (filter) =
+**c2c_wpuntexturize (filter)**
 
 The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
 
@@ -69,7 +69,7 @@ Do:
 
 `<?php echo apply_filters( 'c2c_wpuntexturize', $mytext ); ?>`
 
-= wpuntexturize_filters (filter) =
+**wpuntexturize_filters (filter)**
 
 The 'wpuntexturize_filters' filter allows you to customize what filters to hook to be filtered with wpuntexturize.  See the Description section for a complete list of all filters that are filtered by default.
 
@@ -93,7 +93,7 @@ function more_wpuntexturize_filters( $filters ) {
 add_filter( 'wpuntexturize_filters', 'more_wpuntexturize_filters' );
 `
 
-= c2c_wpuntexturize_replacements (filter) =
+**c2c_wpuntexturize_replacements (filter)**
 
 The 'c2c_wpuntexturize_replacements' filter allows you to customize the character replacements handled by the plugin.
 
