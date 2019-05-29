@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.7 _(2019-05-28)_
 * New: Convert native curly quotation marks to their non-curly alternatives
 * New: Add filter `c2c_wpuntexturize_convert_curly_quotes` to allow disabling of conversion of native curly quotes
 * New: Untexturize three recently introduced core filters: `get_the_post_type_description`, `the_post_thumbnail_caption`, `widget_text_content`
