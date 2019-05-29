@@ -15,7 +15,7 @@ Prevent WordPress from displaying single and double quotation marks as their cur
 
 By default, WordPress converts single and double quotation marks into their curly alternatives. This plugin prevents that from happening, so you can enjoy your quotation marks in their non-curly glory. If your content happens to already have curly quotation marks in it, then this plugin also converts them to their non-curly alternatives.
 
-*Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function.  This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
+*Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function. This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
 Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/wpuntexturize/) | [Plugin Directory Page](https://wordpress.org/plugins/wpuntexturize/) | [GitHub](https://github.com/coffee2code/wpuntexturize/) | [Author Homepage](http://coffee2code.com)
 
@@ -36,7 +36,7 @@ This ONLY prevents WordPress from making HTML entity code substitutions of singl
 
 This plugin potentially modifies the post content, excerpt, title, comment text, widget text, and more.
 
-More specifically, it performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default.  This list comprises:
+More specifically, it performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default. This list comprises:
 
 comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, get_the_post_type_description, the_post_thumbnail_caption, the_title, the_content, the_excerpt, the_excerpt_embed, comment_text, list_cats, widget_text, widget_text_content
 
@@ -53,7 +53,7 @@ The plugin is further customizable via three hooks. Such code should ideally be 
 
 **c2c_wpuntexturize (filter)**
 
-The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site.  This only applies if you use the function directly, which is not typical usage for most users.
+The 'c2c_wpuntexturize' filter allows you to use an alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site. This only applies if you use the function directly, which is not typical usage for most users.
 
 Arguments:
 
@@ -71,7 +71,7 @@ Do:
 
 **wpuntexturize_filters (filter)**
 
-The 'wpuntexturize_filters' filter allows you to customize what filters to hook to be filtered with wpuntexturize.  See the Description section for a complete list of all filters that are filtered by default.
+The 'wpuntexturize_filters' filter allows you to customize what filters to hook to be filtered with wpuntexturize. See the Description section for a complete list of all filters that are filtered by default.
 
 Arguments:
 
@@ -192,7 +192,7 @@ Minor update: deprecated 'wpuntexturize()' in favor of 'c2c_wpuntexturize()'; re
 Trivial update: noted compatibility through WP 3.1+ and updated copyright date
 
 = 1.3.1 =
-Bugfix release.  Fixed bugs preventing plugin activation.
+Bugfix release. Fixed bugs preventing plugin activation.
 
 = 1.3 =
 Minor update: renamed a filter; added a filter; wrapped initialization into a function.

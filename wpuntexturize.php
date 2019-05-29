@@ -31,7 +31,7 @@
 
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 	GNU General Public License for more details.
 
 	You should have received a copy of the GNU General Public License
@@ -47,7 +47,7 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	 * their curly alternatives.
 	 *
 	 * Despite the unfortunately misleading name, this plugin is NOT the antithesis
-	 * of WordPress's wptexturize() function.  This ONLY prevents WordPress from
+	 * of WordPress's wptexturize() function. This ONLY prevents WordPress from
 	 * making HTML entity code substitutions of single and double quotation marks
 	 * with their curly alternatives and does NOT prevent wptexturize() from making
 	 * any other character and string substitutions.
