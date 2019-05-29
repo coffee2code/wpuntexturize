@@ -38,7 +38,7 @@ This plugin potentially modifies the post content, excerpt, title, comment text,
 
 More specifically, it performs a wpuntexturize on every filter that WordPress applies the wptexturize to by default.  This list comprises:
 
-comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, the_title, the_content, the_excerpt, comment_text, list_cats, widget_text
+comment_author, term_name, link_name, link_description, link_notes, bloginfo, wp_title, widget_title, single_post_title, single_cat_title, single_tag_title, single_month_title, nav_menu_attr_title, nav_menu_description, term_description, get_the_post_type_description, the_post_thumbnail_caption, the_title, the_content, the_excerpt, the_excerpt_embed, comment_text, list_cats, widget_text, widget_text_content
 
 This complete list can be filtered via wpuntexturize's own filter, `wpuntexturize_filters`.
 
