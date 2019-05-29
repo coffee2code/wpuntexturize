@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Fix: Correct typo in GitHub URL
+* Change: Split paragraph in README.md's "Support" section into two
 
 ## 1.6.3 _(2019-03-04)_
 * New: Add inline documentation for hooks
