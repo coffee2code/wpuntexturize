@@ -65,11 +65,27 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 			'&#8222;' => '"', // double low 9 quotation mark
 			'&#8242;' => "'", // prime mark
 			'&#8243;' => '"', // double prime mark
-			'“'       => '"', // left double curly quotation mark
-			'”'       => '"', // right double curly quotation mark
-			'‘'       => "'", // left double curly quotation mark
-			'’'       => "'", // right double curly quotation mark
 		);
+
+		/**
+		 * Filters if preexisting curly quotes should be converted to their non-curly
+		 * alternatives.
+		 *
+		 * @since 1.7
+		 *
+		 * @param bool $convert Convert preexistingmcurly quotes? Default true.
+		 */
+		if ( (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', true ) ) {
+			$replacements = array_merge(
+				$replacements,
+				array(
+					'“'       => '"', // left double curly quotation mark
+					'”'       => '"', // right double curly quotation mark
+					'‘'       => "'", // left double curly quotation mark
+					'’'       => "'", // right double curly quotation mark
+				)
+			);
+		}
 
 		/**
 		 * Filters the character replacements.

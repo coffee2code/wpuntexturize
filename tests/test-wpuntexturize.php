@@ -6,8 +6,10 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 
 	public function tearDown() {
 		parent::tearDown();
-		// Ensure the filter gets removed
-		remove_filter( 'c2c_wpuntexturize_replacements', array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
+
+		// Ensure filters gets removed
+		remove_filter( 'c2c_wpuntexturize_replacements',         array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
+		remove_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 	}
 
 	//
@@ -90,9 +92,14 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
-	public function test_direct_invocation_uncurlies_curly_quotes( $str ) {
+	public function test_direct_invocation_uncurlies_curly_quotes( $str, $uncurly_single_characters = true ) {
 		list( $uncurly, $curly ) = $str;
-		$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
+
+		if ( ! $uncurly_single_characters && false === strpos( $curly, '&#8' ) ) {
+			$this->assertEquals( $curly, c2c_wpuntexturize( $curly ) );
+		} else {
+			$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
+		}
 	}
 
 	/**
@@ -160,4 +167,12 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( '(c) 2017', c2c_wpuntexturize( '&copy; 2017' ) );
 	}
 
+	/**
+	 * @dataProvider strings_containing_curly_quotes
+	 */
+	public function test_filter_c2c_wpuntexturize_convert_curly_quotes( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
+
+		$this->test_direct_invocation_uncurlies_curly_quotes( $str, false );
+	}
 }

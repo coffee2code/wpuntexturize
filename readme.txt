@@ -49,7 +49,7 @@ Yes.
 
 == Hooks ==
 
-The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
+The plugin is further customizable via four hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 **c2c_wpuntexturize (filter)**
 
@@ -121,6 +121,21 @@ function c2c_change_wpuntexturize_replacements( $replacements ) {
 	return $replacements;
 }
 add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacements' );
+`
+
+**c2c_wpuntexturize_convert_curly_quotes (filter)**
+
+The 'c2c_wpuntexturize_convert_curly_quotes' filter allows you to prevent curly quotes from being converted into their non-curly alternatives.
+
+Arguments:
+
+* boolean $convert : Convert preexisting curly quotes? Default true.
+
+Example:
+
+`
+// Don't convert curly quotes into non-curly quotes.
+add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 `
 
 

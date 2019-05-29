@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * New: Convert native curly quotation marks to their non-curly alternatives
+* New: Add filter `c2c_wpuntexturize_convert_curly_quotes` to allow disabling of conversion of native curly quotes
 * New: Untexturize three recently introduced core filters: `get_the_post_type_description`, `the_post_thumbnail_caption`, `widget_text_content`
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * Change: Update unit test install script and bootstrap to use latest WP unit test repo
