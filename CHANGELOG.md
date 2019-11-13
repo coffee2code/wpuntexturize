@@ -1,5 +1,8 @@
 # Changelog
 
+## (in-progress)
+* Change: Note compatibility through WP 5.3+
+
 ## 1.7 _(2019-05-28)_
 * New: Convert native curly quotation marks to their non-curly alternatives
 * New: Add filter `c2c_wpuntexturize_convert_curly_quotes` to allow disabling of conversion of native curly quotes
