@@ -168,7 +168,7 @@ add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 * Change: Update copyright date (2018)
 * Change: Minor whitespace tweaks in unit test bootstrap
 
-= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
+_Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==

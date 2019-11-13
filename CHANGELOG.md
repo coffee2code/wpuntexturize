@@ -2,6 +2,7 @@
 
 ## (in-progress)
 * Change: Note compatibility through WP 5.3+
+* Change: Use full URL for readme.txt link to full changelog
 * Change: Update copyright date (2020)
 
 ## 1.7 _(2019-05-28)_
