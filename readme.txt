@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 5.3
-Stable tag: 1.7
+Stable tag: 1.7.1
 
 Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
 
@@ -141,6 +141,11 @@ add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 
 == Changelog ==
 
+= 1.7.1 (2019-11-12) =
+* Change: Note compatibility through WP 5.3+
+* Change: Use full URL for readme.txt link to full changelog
+* Change: Update copyright date (2020)
+
 = 1.7 (2019-05-28) =
 * New: Convert native curly quotation marks to their non-curly alternatives
 * New: Add filter `c2c_wpuntexturize_convert_curly_quotes` to allow disabling of conversion of native curly quotes
@@ -160,18 +165,13 @@ add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
 
-= 1.6.2 (2017-11-09) =
-* New: Add README.md
-* Change: Add GitHub link to readme
-* Change: Minor readme tweak regarding suggested location for custom code
-* Change: Note compatibility through WP 4.9+
-* Change: Update copyright date (2018)
-* Change: Minor whitespace tweaks in unit test bootstrap
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.7.1 =
+Trivial update: noted compatibility through WP 5.3+ and updated copyright date (2020)
 
 = 1.7 =
 Recommended update: now convert native curly quotes to non-curly quotes, remove curly quotes from more places, noted compatibility through WP 5.2+, added CHANGELOG.md, tweaked unit test initialization
