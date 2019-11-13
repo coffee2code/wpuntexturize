@@ -2,6 +2,7 @@
 
 ## (in-progress)
 * Change: Note compatibility through WP 5.3+
+* Change: Update copyright date (2020)
 
 ## 1.7 _(2019-05-28)_
 * New: Convert native curly quotation marks to their non-curly alternatives
