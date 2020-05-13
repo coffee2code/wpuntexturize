@@ -4,14 +4,6 @@ defined( 'ABSPATH' ) or die();
 
 class WPUntexturize_Test extends WP_UnitTestCase {
 
-	public function tearDown() {
-		parent::tearDown();
-
-		// Ensure filters gets removed
-		remove_filter( 'c2c_wpuntexturize_replacements',         array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
-		remove_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
-	}
-
 	//
 	//
 	// DATA PROVIDERS
