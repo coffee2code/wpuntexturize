@@ -1,8 +1,12 @@
 # Changelog
 
 ## _(in-progress)_
+* Change: Revert default uncurling of native curly quotes and make it an optional behavior controlled by new setting
+    * New: Add setting to Settings -> Reading page
+    * New: Add `initialize_setting()`, `whitelist_options()`, `display_option()`, `should_convert_native_quotes()`
 * New: Add class `c2c_wpuntexturize` to encapsulate new (largely admin-related) and existing functionality
     * New: Add `version()`, `init()`
+* Change: Extract logic for determining if native curly quotes should be handled into `should_convert_native_quotes()`
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS

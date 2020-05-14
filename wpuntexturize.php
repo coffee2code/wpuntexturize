@@ -44,6 +44,15 @@ defined( 'ABSPATH' ) or die();
 class c2c_wpuntexturize {
 
 	/**
+	 * The name used for the plugin's setting.
+	 *
+	 * @ccess private
+	 * @since 2.0
+	 * @var string
+	 */
+	private static $setting_name = 'c2c_wpuntexturize';
+
+	/**
 	 * Returns version of the plugin.
 	 *
 	 * @since 1.0
@@ -62,6 +71,84 @@ class c2c_wpuntexturize {
 	public static function init() {
 		// Load textdomain.
 		load_plugin_textdomain( 'wpuntexturize' );
+
+		// Register hooks.
+		add_action( 'admin_init', array( __CLASS__, 'initialize_setting' ) );
+	}
+
+	/**
+	 * Initializes setting.
+	 *
+	 * @since 2.0
+	 */
+	public static function initialize_setting() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		register_setting( 'reading', self::$setting_name );
+
+		add_filter( 'whitelist_options', array( __CLASS__, 'whitelist_options' ) );
+
+		add_settings_field(
+			self::$setting_name,
+			__( 'Prevent all curly quotes?', 'wpuntexturize' ),
+			array( __CLASS__, 'display_option' ),
+			'reading'
+		);
+	}
+
+	/**
+	 * Whitelists the plugin's option(s)
+	 *
+	 * @since 2.0
+	 *
+	 * @param array $options Array of options.
+	 * @return array The whitelist-amended $options array.
+	 */
+	public static function whitelist_options( $options ) {
+		return add_option_whitelist(
+			array( self::$setting_name => array( self::$setting_name ) ),
+			$options
+		);
+	}
+
+	/**
+	 * Outputs markup for the plugin setting on the Reading Settings page.
+	 *
+	 * @since 2.0
+	 *
+	 * @param array $args Arguments.
+	 */
+	public static function display_option( $args = array() ) {
+		printf(
+			'<fieldset><label for="%s"><input type="checkbox" name="%s" value="1"%s /> %s</label><p class="description">%s</p></fieldset>' . "\n",
+			self::$setting_name,
+			self::$setting_name,
+			checked( true, self::should_convert_native_quotes(), false ),
+			__( 'Convert existing curly quotes in posts to their non-curly alternatives', 'wpuntexturize' ),
+			__( 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.', 'wpuntexturize' )
+		);
+	}
+
+	/**
+	 * Determines if native curly quotes should be converted to their non-curly
+	 * alternatives.
+	 *
+	 * @since 2.0
+	 *
+	 * @return bool True if quotes should be converted, else false.
+	 */
+	public static function should_convert_native_quotes() {
+		/**
+		 * Filters if preexisting curly quotes should be converted to their non-curly
+		 * alternatives.
+		 *
+		 * @since 1.7
+		 *
+		 * @param bool $convert Convert preexistingmcurly quotes? Default true.
+		 */
+		return (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', (bool) get_option( self::$setting_name, true ) );
 	}
 
 }
@@ -93,15 +180,7 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 			'&#8243;' => '"', // double prime mark
 		);
 
-		/**
-		 * Filters if preexisting curly quotes should be converted to their non-curly
-		 * alternatives.
-		 *
-		 * @since 1.7
-		 *
-		 * @param bool $convert Convert preexistingmcurly quotes? Default true.
-		 */
-		if ( (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', true ) ) {
+		if ( c2c_wpuntexturize::should_convert_native_quotes() ) {
 			$replacements = array_merge(
 				$replacements,
 				array(

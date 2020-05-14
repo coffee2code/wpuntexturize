@@ -79,6 +79,38 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'plugins_loaded', array( 'c2c_wpuntexturize', 'init' ) ) );
 	}
 
+	public function test_hooks_admin_init_for_initialize_setting() {
+		$this->assertEquals( 10, has_action( 'admin_init', array( 'c2c_wpuntexturize', 'initialize_setting' ) ) );
+	}
+
+	public function test_setting_is_not_registered_for_unauthorized_user() {
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( in_array( 'c2c_wpuntexturize', array_keys( get_registered_settings() ) ) );
+	}
+
+	public function test_setting_is_registered_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertTrue( in_array( 'c2c_wpuntexturize', array_keys( get_registered_settings() ) ) );
+	}
+
+	public function test_does_not_hook_whitelist_options_for_unauthorized_user() {
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+	}
+
+	public function test_hooks_whitelist_options_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+	}
+
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */
@@ -171,12 +203,72 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( '(c) 2017', c2c_wpuntexturize( '&copy; 2017' ) );
 	}
 
+	/*
+	 * display_option()
+	 */
+
+	public function test_display_option_when_unchecked() {
+		update_option( 'c2c_wpuntexturize', '0' );
+		c2c_wpuntexturize::display_option();
+
+		$expected = '<fieldset><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" /> ';
+		$expected .= 'Convert existing curly quotes in posts to their non-curly alternatives';
+		$expected .= '</label><p class="description">';
+		$expected .= 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.';
+		$expected .= '</p></fieldset>';
+
+		$this->expectOutputRegex( '~' . preg_quote( $expected ) . '~' );
+	}
+
+	public function test_display_option_when_checked() {
+		update_option( 'c2c_wpuntexturize', '1' );
+		c2c_wpuntexturize::display_option();
+
+		$expected = '<fieldset><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" checked=\'checked\' /> ';
+		$expected .= 'Convert existing curly quotes in posts to their non-curly alternatives';
+		$expected .= '</label><p class="description">';
+		$expected .= 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.';
+		$expected .= '</p></fieldset>';
+
+		$this->expectOutputRegex( '~' . preg_quote( $expected ) . '~' );
+	}
+
+	/*
+	 * should_convert_native_quotes()
+	 */
+
+	public function test_should_convert_native_quotes_when_setting_is_true() {
+		update_option( 'c2c_wpuntexturize', '1' );
+
+		$this->assertTrue( c2c_wpuntexturize::should_convert_native_quotes() );
+	}
+
+	public function test_should_convert_native_quotes_when_setting_is_false() {
+		update_option( 'c2c_wpuntexturize', '0' );
+
+		$this->assertFalse( c2c_wpuntexturize::should_convert_native_quotes() );
+	}
+
+	/*
+	 * filter: c2c_wpuntexturize_convert_curly_quotes
+	 */
+
+	public function test_filter_c2c_wpuntexturize_convert_curly_quotes_when_false() {
+		update_option( 'c2c_wpuntexturize', '0' );
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
+
+		$this->assertTrue( c2c_wpuntexturize::should_convert_native_quotes() );
+	}
+
 	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
 	public function test_filter_c2c_wpuntexturize_convert_curly_quotes( $str ) {
+		update_option( 'c2c_wpuntexturize', '1' );
 		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 
 		$this->test_direct_invocation_uncurlies_curly_quotes( $str, false );
+		$this->assertFalse( c2c_wpuntexturize::should_convert_native_quotes() );
 	}
+
 }
