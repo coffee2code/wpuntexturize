@@ -1,6 +1,8 @@
 # Changelog
 
 ## _(in-progress)_
+* New: Add class `c2c_wpuntexturize` to encapsulate new (largely admin-related) and existing functionality
+    * New: Add `version()`, `init()`
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS

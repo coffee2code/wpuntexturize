@@ -67,6 +67,18 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	//
 
 
+	public function test_class_is_available() {
+		$this->assertTrue( class_exists( 'c2c_wpuntexturize' ) );
+	}
+
+	public function test_plugin_version() {
+		$this->assertEquals( '1.7.1', c2c_wpuntexturize::version() );
+	}
+
+	public function test_hooks_plugins_loaded_for_init() {
+		$this->assertEquals( 10, has_action( 'plugins_loaded', array( 'c2c_wpuntexturize', 'init' ) ) );
+	}
+
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */

@@ -41,6 +41,32 @@
 
 defined( 'ABSPATH' ) or die();
 
+class c2c_wpuntexturize {
+
+	/**
+	 * Returns version of the plugin.
+	 *
+	 * @since 1.0
+	 */
+	public static function version() {
+		return '1.7.1';
+	}
+
+	/**
+	 * Initializer.
+	 *
+	 * Loads plugin textdomain and registers actions/filters.
+	 *
+	 * @since 2.0
+	 */
+	public static function init() {
+		// Load textdomain.
+		load_plugin_textdomain( 'wpuntexturize' );
+	}
+
+}
+add_action( 'plugins_loaded', array( 'c2c_wpuntexturize', 'init' ) );
+
 if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	/**
 	 * Prevent WordPress from displaying single and double quotation marks as
