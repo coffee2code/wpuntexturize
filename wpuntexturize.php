@@ -132,6 +132,48 @@ class c2c_wpuntexturize {
 	}
 
 	/**
+	 * Returns the replacements.
+	 *
+	 * @since 2.0
+	 *
+	 * @return array
+	 */
+	public static function get_replacements() {
+		$replacements = array(
+			'&#8216;' => "'", // left single quotation mark
+			'&#8217;' => "'", // right single quotation mark
+			'&#8218;' => "'", // single low 9 quotation mark
+			'&#8220;' => '"', // left double quotation mark
+			'&#8221;' => '"', // right double quotation mark
+			'&#8222;' => '"', // double low 9 quotation mark
+			'&#8242;' => "'", // prime mark
+			'&#8243;' => '"', // double prime mark
+		);
+
+		if ( self::should_convert_native_quotes() ) {
+			$replacements = array_merge(
+				$replacements,
+				array(
+					'“'       => '"', // left double curly quotation mark
+					'”'       => '"', // right double curly quotation mark
+					'‘'       => "'", // left double curly quotation mark
+					'’'       => "'", // right double curly quotation mark
+				)
+			);
+		}
+
+		/**
+		 * Filters the character replacements.
+		 *
+		 * @since 1.6.0
+		 *
+		 * @param array $replacements Array of replacements; keys are text to replace
+		 *                            and values are the text for the replacements.
+		 */
+		return (array) apply_filters( 'c2c_wpuntexturize_replacements', $replacements );
+	}
+
+	/**
 	 * Determines if native curly quotes should be converted to their non-curly
 	 * alternatives.
 	 *
@@ -152,6 +194,7 @@ class c2c_wpuntexturize {
 	}
 
 }
+
 add_action( 'plugins_loaded', array( 'c2c_wpuntexturize', 'init' ) );
 
 if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
@@ -169,38 +212,7 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	 * @return string The converted text
 	 */
 	function c2c_wpuntexturize( $text ) {
-		$replacements = array(
-			'&#8216;' => "'", // left single quotation mark
-			'&#8217;' => "'", // right single quotation mark
-			'&#8218;' => "'", // single low 9 quotation mark
-			'&#8220;' => '"', // left double quotation mark
-			'&#8221;' => '"', // right double quotation mark
-			'&#8222;' => '"', // double low 9 quotation mark
-			'&#8242;' => "'", // prime mark
-			'&#8243;' => '"', // double prime mark
-		);
-
-		if ( c2c_wpuntexturize::should_convert_native_quotes() ) {
-			$replacements = array_merge(
-				$replacements,
-				array(
-					'“'       => '"', // left double curly quotation mark
-					'”'       => '"', // right double curly quotation mark
-					'‘'       => "'", // left double curly quotation mark
-					'’'       => "'", // right double curly quotation mark
-				)
-			);
-		}
-
-		/**
-		 * Filters the character replacements.
-		 *
-		 * @since 1.6.0
-		 *
-		 * @param array $replacements Array of replacements; keys are text to replace
-		 *                            and values are the text for the replacements.
-		 */
-		$replacements = (array) apply_filters( 'c2c_wpuntexturize_replacements', $replacements );
+		$replacements = c2c_wpuntexturize::get_replacements();
 
 		return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
 	}

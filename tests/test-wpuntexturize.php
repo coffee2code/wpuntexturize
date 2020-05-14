@@ -280,6 +280,46 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/*
+	 * get_replacements()
+	 */
+
+	public function test_get_replacements() {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
+		$expected = array(
+			'&#8216;' => "'",
+			'&#8217;' => "'",
+			'&#8218;' => "'",
+			'&#8220;' => '"',
+			'&#8221;' => '"',
+			'&#8222;' => '"',
+			'&#8242;' => "'",
+			'&#8243;' => '"',
+		);
+
+		$this->assertEquals( $expected, c2c_wpuntexturize::get_replacements() );
+	}
+
+	public function test_get_replacements_when_converting_native_curly_quotes() {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
+		$expected = array(
+			'&#8216;' => "'",
+			'&#8217;' => "'",
+			'&#8218;' => "'",
+			'&#8220;' => '"',
+			'&#8221;' => '"',
+			'&#8222;' => '"',
+			'&#8242;' => "'",
+			'&#8243;' => '"',
+			'“'       => '"',
+			'”'       => '"',
+			'‘'       => "'",
+			'’'       => "'",
+		);
+
+		$this->assertEquals( $expected, c2c_wpuntexturize::get_replacements() );
+	}
+
+	/*
 	 * should_convert_native_quotes()
 	 */
 
