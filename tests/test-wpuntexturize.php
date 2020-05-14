@@ -32,6 +32,11 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 			array( array( "It 'twas time the curly quotes got uncurled.", "It &#8217;twas time the curly quotes got uncurled." ) ),
 			array( array( "She said 'free my cat' to me.", 'She said &#8218;free my cat&#8217; to me.' ) ),
 			array( array( 'She said "free my cat" to me.', 'She said &#8222;free my cat&#8221; to me.' ) ),
+		);
+	}
+
+	public static function strings_containing_native_curly_quotes() {
+		return array(
 			array( array( "'This is single quoted,' I said.", "‘This is single quoted,’ I said." ) ),
 			array( array( '"This is double quoted," I said.', '“This is double quoted,” I said.' ) ),
 		);
@@ -139,11 +144,51 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/**
+	 * @dataProvider strings_containing_native_curly_quotes
+	 */
+	public function test_direct_invocation_uncurlies_native_curly_quotes( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
+		list( $uncurly, $curly ) = $str;
+
+		$this->assertEquals( $uncurly, c2c_wpuntexturize( $curly ) );
+	}
+
+	/**
+	 * @dataProvider strings_containing_native_curly_quotes
+	 */
+	public function test_direct_invocation_does_not_uncurly_native_curly_quotes_if_disabled( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
+		list( $uncurly, $curly ) = $str;
+
+		$this->assertEquals( $curly, c2c_wpuntexturize( $curly ) );
+	}
+
+	/**
 	 * @dataProvider strings_containing_curly_quotes
 	 */
 	public function test_indirect_invocation_uncurlies_curly_quotes( $str ) {
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, apply_filters( 'c2c_wpuntexturize', $curly ) );
+	}
+
+	/**
+	 * @dataProvider strings_containing_native_curly_quotes
+	 */
+	public function test_indirect_invocation_uncurlies_native_curly_quotes( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
+		list( $uncurly, $curly ) = $str;
+
+		$this->assertEquals( $uncurly, apply_filters( 'c2c_wpuntexturize', $curly ) );
+	}
+
+	/**
+	 * @dataProvider strings_containing_native_curly_quotes
+	 */
+	public function test_indirect_invocation_does_not_uncurly_native_curly_quotes_if_disabled( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
+		list( $uncurly, $curly ) = $str;
+
+		$this->assertEquals( $curly, apply_filters( 'c2c_wpuntexturize', $curly ) );
 	}
 
 	/**
@@ -185,6 +230,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	 * @expectedDeprecated wpuntexturize
 	 */
 	public function test_deprecated_filter_invocation_uncurlies_curly_quotes( $str ) {
+		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
 		list( $uncurly, $curly ) = $str;
 		$this->assertEquals( $uncurly, apply_filters( 'wpuntexturize', $curly ) );
 	}
@@ -260,14 +306,10 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertTrue( c2c_wpuntexturize::should_convert_native_quotes() );
 	}
 
-	/**
-	 * @dataProvider strings_containing_curly_quotes
-	 */
-	public function test_filter_c2c_wpuntexturize_convert_curly_quotes( $str ) {
+	public function test_filter_c2c_wpuntexturize_convert_curly_quotes() {
 		update_option( 'c2c_wpuntexturize', '1' );
 		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
 
-		$this->test_direct_invocation_uncurlies_curly_quotes( $str, false );
 		$this->assertFalse( c2c_wpuntexturize::should_convert_native_quotes() );
 	}
 

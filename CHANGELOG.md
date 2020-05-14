@@ -4,6 +4,7 @@
 * Change: Revert default uncurling of native curly quotes and make it an optional behavior controlled by new setting
     * New: Add setting to Settings -> Reading page
     * New: Add `initialize_setting()`, `whitelist_options()`, `display_option()`, `should_convert_native_quotes()`
+    * Change: Switch default for converting native curly quotes to false
 * New: Add class `c2c_wpuntexturize` to encapsulate new (largely admin-related) and existing functionality
     * New: Add `version()`, `init()`
 * Change: Extract logic for determining if native curly quotes should be handled into `should_convert_native_quotes()`

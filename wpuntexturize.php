@@ -148,7 +148,7 @@ class c2c_wpuntexturize {
 		 *
 		 * @param bool $convert Convert preexistingmcurly quotes? Default true.
 		 */
-		return (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', (bool) get_option( self::$setting_name, true ) );
+		return (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', (bool) get_option( self::$setting_name, false ) );
 	}
 
 }
