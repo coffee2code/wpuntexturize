@@ -8,12 +8,12 @@ Requires at least: 1.5
 Tested up to: 5.4
 Stable tag: 1.7.1
 
-Prevent WordPress from displaying single and double quotation marks as their curly alternatives.
+Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
 
 
 == Description ==
 
-By default, WordPress converts single and double quotation marks into their curly alternatives. This plugin prevents that from happening, so you can enjoy your quotation marks in their non-curly glory. If your content happens to already have curly quotation marks in it, then this plugin also converts them to their non-curly alternatives.
+By default, WordPress converts single and double quotation marks into their curly alternatives. This plugin prevents that from happening, so you can enjoy your quotation marks in their non-curly glory. If your content happens to already have curly quotation marks in it, then this plugin can optionally also convert them to their non-curly alternatives.
 
 *Note:* Despite the unfortunately misleading name, this plugin is NOT the antithesis of WordPress's `wptexturize()` function. This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent `wptexturize()` from making any other character and string substitutions. See the FAQ for details on the filters processed by the plugin.
 
@@ -23,7 +23,8 @@ Links: [Plugin Homepage](https://coffee2code.com/wp-plugins/wpuntexturize/) | [P
 == Installation ==
 
 1. Install via the built-in WordPress plugin installer. Or download and unzip `wpuntexturize.zip` inside the plugins directory for your site (typically `wp-content/plugins/`)
-1. Activate the plugin through the 'Plugins' admin menu in WordPress
+2. Activate the plugin through the 'Plugins' admin menu in WordPress
+3. Optional: If you want to also convert existing curly quotation marks within posts to their non-curly alternatives, then on the Settings -> Reading admin page check the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives". _(Reminder that the plugin will always prevent WordPress from converting non-curly quotation marks to the curly alternatives.)_
 
 
 == Frequently Asked Questions ==
@@ -31,6 +32,12 @@ Links: [Plugin Homepage](https://coffee2code.com/wp-plugins/wpuntexturize/) | [P
 = Why are certain characters in my posts still being replaced by their HTML entity encoded version? =
 
 This ONLY prevents WordPress from making HTML entity code substitutions of single and double quotation marks with their curly alternatives and does NOT prevent WordPress from making any other character and string substitutions.
+
+= Why do I still see curly quotation marks in my posts? =
+
+Most likely these curly quotes are actually present in your originally post content and are being directly shown to visitors. WordPress isn't converting these to curly quotes since they are already that way. This could happen if you copy-and-pasted text from another source.
+
+If you don't want any curly quotes to appear in your posts at all, then on the Settings -> Reading admin page check the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
 
 = What text does this plugin modify/filter? =
 

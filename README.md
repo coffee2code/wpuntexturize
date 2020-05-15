@@ -1,6 +1,6 @@
 # wpuntexturize
 
-A plugin for WordPress that prevents WordPress from displaying single and double quotation marks as their curly alternatives.
+A plugin for WordPress that prevents WordPress from converting single and double quotation marks into their curly alternatives, and optionally also converts existing curly quotation marks into their non-curly alternatives.
 
 This plugin can be found in the WordPress Plugin Directory: https://wordpress.org/plugins/wpuntexturize/
 
@@ -8,6 +8,7 @@ This plugin can be found in the WordPress Plugin Directory: https://wordpress.or
 
 1. Install via the built-in WordPress plugin installer. Or install the plugin code inside the plugins directory for your site (typically `/wp-content/plugins/`).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
+3. Optional: If you want to also convert existing curly quotation marks within posts to their non-curly alternatives, then on the Settings -> Reading admin page check the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives". _(Reminder that the plugin will always prevent WordPress from converting non-curly quotation marks to the curly alternatives.)_
 
 
 ## Additional Documentation
