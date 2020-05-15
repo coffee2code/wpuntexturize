@@ -55,7 +55,7 @@ class c2c_wpuntexturize {
 	/**
 	 * Returns version of the plugin.
 	 *
-	 * @since 1.0
+	 * @since 2.0
 	 */
 	public static function version() {
 		return '1.7.1';
