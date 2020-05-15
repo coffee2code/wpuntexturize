@@ -9,6 +9,8 @@
     * New: Add `version()`, `init()`
 * Change: Extract logic for determining if native curly quotes should be handled into `should_convert_native_quotes()`
 * Change: Extract code for getting the list of replacements into `get_replacements()`
+* Change: Remove function `c2c_init_wpuntexturize()` (its functionality added to `init()`)
+* Change: Remove function `c2c_wpuntexturize_get_default_filters()` (moved to class function `get_default_filters()`)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS

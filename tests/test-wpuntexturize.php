@@ -43,7 +43,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	public static function default_filters() {
-		$filters = c2c_wpuntexturize_get_default_filters();
+		$filters = c2c_wpuntexturize::get_default_filters();
 		return array_map( function( $x )  { return array( $x ); }, $filters );
 	}
 
@@ -247,6 +247,48 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		add_filter( 'c2c_wpuntexturize_replacements', array( __CLASS__, 'filter_c2c_wpuntexturize_replacements' ) );
 
 		$this->assertEquals( '(c) 2017', c2c_wpuntexturize( '&copy; 2017' ) );
+	}
+
+	/*
+	 * get_default_filters()
+	 */
+
+	public function test_get_default_filters() {
+		$expected = array(
+			'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
+			'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
+			'term_description', 'get_the_post_type_description',
+			'the_title', 'the_content', 'the_excerpt', 'the_post_thumbnail_caption', 'comment_text', 'list_cats',
+			'widget_text_content', 'widget_text', 'the_excerpt_embed',
+		);
+
+		$this->assertEquals( $expected, c2c_wpuntexturize::get_default_filters() );
+	}
+
+	/*
+	 * filter: wpuntexturize_filters
+	 */
+
+	public function test_filter_wpuntexturize_filters() {
+		add_filter( 'wpuntexturize_filters', function( $filters ) {
+			// Add something.
+			$filters[] = 'c2c_test';
+			// Remove something.
+			array_shift( $filters );
+			return $filters;
+		} );
+
+		$default_filters = c2c_wpuntexturize::get_default_filters();
+
+		$this->assertContains( 'c2c_test', $default_filters );
+		$this->assertContains( 'term_name', $default_filters );
+		$this->assertNotContains( 'comment_author', $default_filters );
+	}
+
+	public function test_filter_wpuntexturize_filters_returns_array() {
+		add_filter( 'wpuntexturize_filters', function( $filters ) { return 'c2c_test'; } );
+
+		$this->assertIsArray( c2c_wpuntexturize::get_default_filters() );
 	}
 
 	/*

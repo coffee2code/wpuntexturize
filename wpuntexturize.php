@@ -74,6 +74,34 @@ class c2c_wpuntexturize {
 
 		// Register hooks.
 		add_action( 'admin_init', array( __CLASS__, 'initialize_setting' ) );
+
+		foreach( self::get_default_filters() as $filter ) {
+			add_filter( $filter, 'c2c_wpuntexturize', 11 );
+		}
+	}
+
+	/**
+	 * Gets the list of filters that wpuntexturize() is applied to by default.
+	 *
+	 * @since 2.0
+	 *
+	 * @return array
+	 */
+	public static function get_default_filters() {
+		/**
+		 * Filters the hooks to be filtered with wpuntexturize.
+		 *
+		 * @since 1.2.0
+		 *
+		 * @param array $filters Array of filter names.
+		 */
+		return (array) apply_filters( 'wpuntexturize_filters', array(
+			'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
+			'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
+			'term_description', 'get_the_post_type_description',
+			'the_title', 'the_content', 'the_excerpt', 'the_post_thumbnail_caption', 'comment_text', 'list_cats',
+			'widget_text_content', 'widget_text', 'the_excerpt_embed',
+		) );
 	}
 
 	/**
@@ -217,43 +245,6 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 		return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
 	}
 	add_filter( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
-endif;
-
-
-if ( ! function_exists( 'c2c_init_wpuntexturize' ) ) :
-	/**
-	 * Initialize wpuntexturize, primarily to register it against filters
-	 */
-	function c2c_init_wpuntexturize() {
-		foreach( c2c_wpuntexturize_get_default_filters() as $filter ) {
-			add_filter( $filter, 'c2c_wpuntexturize', 11 );
-		}
-	}
-	add_action( 'init', 'c2c_init_wpuntexturize' );
-endif;
-
-if ( ! function_exists( 'c2c_wpuntexturize_get_default_filters' ) ) :
-	/**
-	 * Gets the list of filters that wpuntexturize() is applied to by default.
-	 *
-	 * @return array
-	 */
-	function c2c_wpuntexturize_get_default_filters() {
-		/**
-		 * Filters the hooks to be filtered with wpuntexturize.
-		 *
-		 * @since 1.2.0
-		 *
-		 * @param array $filters Array of filter names.
-		 */
-		return (array) apply_filters( 'wpuntexturize_filters', array(
-		 'comment_author', 'term_name', 'link_name', 'link_description', 'link_notes', 'bloginfo', 'wp_title', 'widget_title',
-		 'single_post_title', 'single_cat_title', 'single_tag_title', 'single_month_title', 'nav_menu_attr_title', 'nav_menu_description',
-		 'term_description', 'get_the_post_type_description',
-		 'the_title', 'the_content', 'the_excerpt', 'the_post_thumbnail_caption', 'comment_text', 'list_cats',
-		 'widget_text_content', 'widget_text', 'the_excerpt_embed',
-		) );
-	}
 endif;
 
 if ( ! function_exists( 'wpuntexturize' ) ) :
