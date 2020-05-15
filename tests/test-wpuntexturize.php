@@ -200,42 +200,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test deprecated function, at least while it's still present.
-	 *
-	 * @dataProvider strings_containing_non_curly_quotes
-	 *
-	 * @expectedDeprecated wpuntexturize
-	 */
-	public function test_deprecated_function_retains_non_curly_quotes( $str ) {
-		$this->assertEquals( $str, wpuntexturize( $str ) );
-	}
-
-	/**
-	 * Test deprecated function, at least while it's still present.
-	 *
-	 * @dataProvider strings_containing_curly_quotes
-	 *
-	 * @expectedDeprecated wpuntexturize
-	 */
-	public function test_deprecated_function_uncurlies_curly_quotes( $str ) {
-		list( $uncurly, $curly ) = $str;
-		$this->assertEquals( $uncurly, wpuntexturize( $curly ) );
-	}
-
-	/**
-	 * Test deprecated function, at least while it's still present.
-	 *
-	 * @dataProvider strings_containing_curly_quotes
-	 *
-	 * @expectedDeprecated wpuntexturize
-	 */
-	public function test_deprecated_filter_invocation_uncurlies_curly_quotes( $str ) {
-		add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
-		list( $uncurly, $curly ) = $str;
-		$this->assertEquals( $uncurly, apply_filters( 'wpuntexturize', $curly ) );
-	}
-
-	/**
 	 * @dataProvider default_filters
 	 */
 	public function test_wpuntexturize_is_hooked_to_all_default_filters( $filter ) {

@@ -246,18 +246,3 @@ if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	}
 	add_filter( 'c2c_wpuntexturize', 'c2c_wpuntexturize' );
 endif;
-
-if ( ! function_exists( 'wpuntexturize' ) ) :
-	/**
-	 * Prevent WordPress from displaying single and double quotation marks as
-	 * their curly alternatives.
-	 *
-	 * @since 1.0
-	 * @deprecated 1.4 Use c2c_wpuntexturize() instead
-	 */
-	function wpuntexturize( $text ) {
-		_deprecated_function( 'wpuntexturize', '1.4', 'c2c_wpuntexturize' );
-		return c2c_wpuntexturize( $text );
-	}
-	add_filter( 'wpuntexturize', 'wpuntexturize' ); // Deprecated
-endif;
