@@ -1,6 +1,15 @@
 # Changelog
 
-## _(in-progress)_
+## 2.0 _(2020-05-15)_
+
+### Highlights:
+
+Recommended update that reverts an ill-advised change in default behavior added in v1.7 that automatically converted existing curly quotation marks into their non-curly alternatives. This behavior is now disabled by default, but can be optionally enabled on the Settings -> Reading admin page via the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
+
+Additionally, much of the plugin's code has been reorganized, the long-deprecated `wpuntexturize()` has been removed, a few URLs were updated to be HTTPS, and compatibility through WP 5.4+ has been noted.
+
+### Details:
+
 * Change: Revert default uncurling of native curly quotes and make it an optional behavior controlled by new setting
     * New: Add setting to Settings -> Reading page
     * New: Add "Settings" link to plugin's action links in admin listing of plugins
