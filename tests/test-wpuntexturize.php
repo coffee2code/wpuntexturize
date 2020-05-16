@@ -256,6 +256,33 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/*
+	 * plugin_action_links()
+	 */
+
+	public function test_plugin_action_links() {
+		$existing_item = "this is existing";
+		$action_links = c2c_wpuntexturize::plugin_action_links( array( $existing_item ) );
+
+		$this->assertEquals(
+			'<a href="http://example.org/wp-admin/options-reading.php#wpuntexturize">Settings</a>',
+			$action_links[0]
+		);
+		$this->assertEquals( $existing_item, $action_links[1] );
+	}
+
+	public function test_hooks_plugin_action_links() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		$action = 'plugin_action_links_wpuntexturize/wpuntexturize.php';
+
+		$this->assertFalse( has_action( $action, array ( 'c2c_wpuntexturize', 'plugin_action_links' ) ) );
+
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertEquals( 10, has_action( $action, array ( 'c2c_wpuntexturize', 'plugin_action_links' ) ) );
+	}
+
+	/*
 	 * display_option()
 	 */
 
@@ -263,7 +290,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		update_option( 'c2c_wpuntexturize', '0' );
 		c2c_wpuntexturize::display_option();
 
-		$expected = '<fieldset><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" /> ';
+		$expected = '<fieldset id="wpuntexturize"><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" /> ';
 		$expected .= 'Convert existing curly quotes in posts to their non-curly alternatives';
 		$expected .= '</label><p class="description">';
 		$expected .= 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.';
@@ -276,7 +303,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		update_option( 'c2c_wpuntexturize', '1' );
 		c2c_wpuntexturize::display_option();
 
-		$expected = '<fieldset><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" checked=\'checked\' /> ';
+		$expected = '<fieldset id="wpuntexturize"><label for="c2c_wpuntexturize"><input type="checkbox" name="c2c_wpuntexturize" value="1" checked=\'checked\' /> ';
 		$expected .= 'Convert existing curly quotes in posts to their non-curly alternatives';
 		$expected .= '</label><p class="description">';
 		$expected .= 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.';

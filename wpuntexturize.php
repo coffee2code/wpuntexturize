@@ -105,6 +105,25 @@ class c2c_wpuntexturize {
 	}
 
 	/**
+	 * Adds a 'Settings' link to the plugin action links.
+	 *
+	 * @since 2.0
+	 *
+	 * @param string[] $action_links An array of plugin action links.
+	 * @return array
+	 */
+	public static function plugin_action_links( $action_links ) {
+		$settings_link = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( admin_url( 'options-reading.php' ) . '#wpuntexturize' ),
+			__( 'Settings', 'wpuntexturize' )
+		);
+		array_unshift( $action_links, $settings_link );
+
+		return $action_links;
+	}
+
+	/**
 	 * Initializes setting.
 	 *
 	 * @since 2.0
@@ -124,6 +143,9 @@ class c2c_wpuntexturize {
 			array( __CLASS__, 'display_option' ),
 			'reading'
 		);
+
+		// Add link to settings page from the plugin's action links on plugin page.
+		add_filter( 'plugin_action_links_wpuntexturize/wpuntexturize.php', array( __CLASS__, 'plugin_action_links' ) );
 	}
 
 	/**
@@ -150,7 +172,7 @@ class c2c_wpuntexturize {
 	 */
 	public static function display_option( $args = array() ) {
 		printf(
-			'<fieldset><label for="%s"><input type="checkbox" name="%s" value="1"%s /> %s</label><p class="description">%s</p></fieldset>' . "\n",
+			'<fieldset id="wpuntexturize"><label for="%s"><input type="checkbox" name="%s" value="1"%s /> %s</label><p class="description">%s</p></fieldset>' . "\n",
 			self::$setting_name,
 			self::$setting_name,
 			checked( true, self::should_convert_native_quotes(), false ),
