@@ -27,6 +27,11 @@ Links: [Plugin Homepage](https://coffee2code.com/wp-plugins/wpuntexturize/) | [P
 3. Optional: If you want to also convert existing curly quotation marks within posts to their non-curly alternatives, then on the Settings -> Reading admin page check the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives". _(Reminder that the plugin will always prevent WordPress from converting non-curly quotation marks to the curly alternatives.)_
 
 
+== Screenshots ==
+
+1. A screenshot of the plugin's checkbox on the Settings -> Reading admin page. If checked, the plugin will convert existing curly quotation marks into their non-curly alternatives.
+
+
 == Frequently Asked Questions ==
 
 = Why are certain characters in my posts still being replaced by their HTML entity encoded version? =

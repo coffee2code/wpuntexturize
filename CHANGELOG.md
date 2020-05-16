@@ -17,6 +17,7 @@
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS
 * Change: Unit tests: Remove unnecessary unregistering of hooks, and thus `tearDown()`
+* New: Add a screenshot
 
 ## 1.7.1 _(2019-11-12)_
 * Change: Note compatibility through WP 5.3+
