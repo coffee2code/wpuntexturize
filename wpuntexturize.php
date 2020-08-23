@@ -44,13 +44,12 @@ defined( 'ABSPATH' ) or die();
 class c2c_wpuntexturize {
 
 	/**
-	 * The name used for the plugin's setting.
+	 * Name of plugin's setting.
 	 *
-	 * @ccess private
 	 * @since 2.0
 	 * @var string
 	 */
-	private static $setting_name = 'c2c_wpuntexturize';
+	const SETTING_NAME = 'c2c_wpuntexturize';
 
 	/**
 	 * Returns version of the plugin.
@@ -133,12 +132,12 @@ class c2c_wpuntexturize {
 			return;
 		}
 
-		register_setting( 'reading', self::$setting_name );
+		register_setting( 'reading', self::SETTING_NAME );
 
 		add_filter( 'whitelist_options', array( __CLASS__, 'whitelist_options' ) );
 
 		add_settings_field(
-			self::$setting_name,
+			self::SETTING_NAME,
 			__( 'Prevent all curly quotes?', 'wpuntexturize' ),
 			array( __CLASS__, 'display_option' ),
 			'reading'
@@ -158,7 +157,7 @@ class c2c_wpuntexturize {
 	 */
 	public static function whitelist_options( $options ) {
 		return add_option_whitelist(
-			array( self::$setting_name => array( self::$setting_name ) ),
+			array( self::SETTING_NAME => array( self::SETTING_NAME ) ),
 			$options
 		);
 	}
@@ -173,8 +172,8 @@ class c2c_wpuntexturize {
 	public static function display_option( $args = array() ) {
 		printf(
 			'<fieldset id="wpuntexturize"><label for="%s"><input type="checkbox" name="%s" value="1"%s /> %s</label><p class="description">%s</p></fieldset>' . "\n",
-			esc_attr( self::$setting_name ),
-			esc_attr( self::$setting_name ),
+			esc_attr( self::SETTING_NAME ),
+			esc_attr( self::SETTING_NAME ),
 			checked( true, self::should_convert_native_quotes(), false ),
 			__( 'Convert existing curly quotes in posts to their non-curly alternatives', 'wpuntexturize' ),
 			__( 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.', 'wpuntexturize' )
@@ -240,7 +239,7 @@ class c2c_wpuntexturize {
 		 *
 		 * @param bool $convert Convert preexistingmcurly quotes? Default true.
 		 */
-		return (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', (bool) get_option( self::$setting_name, false ) );
+		return (bool) apply_filters( 'c2c_wpuntexturize_convert_curly_quotes', (bool) get_option( self::SETTING_NAME, false ) );
 	}
 
 }
