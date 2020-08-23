@@ -324,7 +324,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		wp_set_current_user( $user_id );
 		c2c_wpuntexturize::initialize_setting();
 
-		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
 	}
 
 	public function test_hooks_whitelist_options_for_authorized_user() {
@@ -332,7 +332,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		wp_set_current_user( $user_id );
 		c2c_wpuntexturize::initialize_setting();
 
-		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
 	}
 
 	public function test_does_not_hook_plugin_action_links_for_unauthorized_user() {
@@ -379,16 +379,16 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/*
-	 * whitelist_options()
+	 * allowed_options()
 	 */
 
 	/**
 	 * @expectedDeprecated add_option_whitelist
 	 */
-	public function test_whitelist_options() {
+	public function test_allowed_options() {
 		$this->assertSame(
 			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
-			c2c_wpuntexturize::whitelist_options( array( 'example' => array( 'sample' ) ) )
+			c2c_wpuntexturize::allowed_options( array( 'example' => array( 'sample' ) ) )
 		);
 	}
 

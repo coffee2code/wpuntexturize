@@ -145,7 +145,7 @@ class c2c_wpuntexturize {
 
 		register_setting( 'reading', self::SETTING_NAME );
 
-		add_filter( 'whitelist_options', array( __CLASS__, 'whitelist_options' ) );
+		add_filter( 'whitelist_options', array( __CLASS__, 'allowed_options' ) );
 
 		add_settings_field(
 			self::SETTING_NAME,
@@ -159,14 +159,15 @@ class c2c_wpuntexturize {
 	}
 
 	/**
-	 * Whitelists the plugin's option(s)
+	 * Allows the plugin's option(s)
 	 *
 	 * @since 2.0
+	 * @since 2.1 Renamed from `whitelist_options()`.
 	 *
-	 * @param array $options Array of options.
-	 * @return array The whitelist-amended $options array.
+	 * @param array $options Array of allowed options.
+	 * @return array The amended allowed options array.
 	 */
-	public static function whitelist_options( $options ) {
+	public static function allowed_options( $options ) {
 		return add_option_whitelist(
 			array( self::SETTING_NAME => array( self::SETTING_NAME ) ),
 			$options
