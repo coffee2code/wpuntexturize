@@ -6,6 +6,7 @@
 * Change: Handle renamings that took place in WP 5.5
     * New: Add `is_wp_55_or_later()` for determining if the site is WP 5.5 or later
     * Change: Hook `allowed_options` instead of `whitelist_options` for WP 5.5+
+    * Change: Call `add_allowed_options()` instead of `add_option_whitelist()` for WP 5.5+
 * Change: Convert storage of setting name from private class variable to a class constant
 * New: Add TODO.md for newly added potential TODO items
 * Change: Restructure unit test file structure
