@@ -13,6 +13,7 @@
 * Change: Note compatibility through WP 5.5+
 * Unit tests:
     * New: Add test for setting name
+    * New: Add test for `whitelist_options()`
     * Change: Rearrange, label the group, enhance, and expand tests for `initialize_setting()`
 
 ## 2.0 _(2020-05-15)_

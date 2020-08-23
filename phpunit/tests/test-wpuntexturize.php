@@ -345,6 +345,20 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	/*
+	 * whitelist_options()
+	 */
+
+	/**
+	 * @expectedDeprecated add_option_whitelist
+	 */
+	public function test_whitelist_options() {
+		$this->assertSame(
+			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
+			c2c_wpuntexturize::whitelist_options( array( 'example' => array( 'sample' ) ) )
+		);
+	}
+
+	/*
 	 * display_option()
 	 */
 
