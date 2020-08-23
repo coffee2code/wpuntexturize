@@ -173,8 +173,8 @@ class c2c_wpuntexturize {
 	public static function display_option( $args = array() ) {
 		printf(
 			'<fieldset id="wpuntexturize"><label for="%s"><input type="checkbox" name="%s" value="1"%s /> %s</label><p class="description">%s</p></fieldset>' . "\n",
-			self::$setting_name,
-			self::$setting_name,
+			esc_attr( self::$setting_name ),
+			esc_attr( self::$setting_name ),
 			checked( true, self::should_convert_native_quotes(), false ),
 			__( 'Convert existing curly quotes in posts to their non-curly alternatives', 'wpuntexturize' ),
 			__( 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.', 'wpuntexturize' )
