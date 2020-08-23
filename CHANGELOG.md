@@ -10,7 +10,8 @@
     * Change: Move `tests/` to `phpunit/tests/`
     * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
 * Change: Note compatibility through WP 5.5+
-
+* Unit tests:
+    * New: Add test for setting name
 
 ## 2.0 _(2020-05-15)_
 

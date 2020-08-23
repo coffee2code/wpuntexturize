@@ -88,6 +88,10 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'admin_init', array( 'c2c_wpuntexturize', 'initialize_setting' ) ) );
 	}
 
+	public function test_setting_name() {
+		$this->assertEquals( 'c2c_wpuntexturize', c2c_wpuntexturize::SETTING_NAME );
+	}
+
 	public function test_setting_is_not_registered_for_unauthorized_user() {
 		c2c_wpuntexturize::initialize_setting();
 
