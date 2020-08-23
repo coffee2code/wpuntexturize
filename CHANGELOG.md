@@ -2,6 +2,8 @@
 
 ## _(in-progress)_
 * Change: Escape settings name before being output as HTML attribute (hardening)
+* Change: Handle renamings that took place in WP 5.5
+    * New: Add `is_wp_55_or_later()` for determining if the site is WP 5.5 or later
 * Change: Convert storage of setting name from private class variable to a class constant
 * New: Add TODO.md for newly added potential TODO items
 * Change: Restructure unit test file structure

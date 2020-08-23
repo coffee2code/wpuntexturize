@@ -80,6 +80,17 @@ class c2c_wpuntexturize {
 	}
 
 	/**
+	 * Determines if the running WordPress is WP 5.5 or later.
+	 *
+	 * @since 2.1
+	 *
+	 * @return bool True if WP is 5.5 or later, else false.
+	 */
+	public static function is_wp_55_or_later() {
+		return version_compare( $GLOBALS['wp_version'], '5.5', '>=' );
+	}
+
+	/**
 	 * Gets the list of filters that wpuntexturize() is applied to by default.
 	 *
 	 * @since 2.0

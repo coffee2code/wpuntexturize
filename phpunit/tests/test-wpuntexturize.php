@@ -99,6 +99,40 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'c2c_wpuntexturize', c2c_wpuntexturize::SETTING_NAME );
 	}
 
+	/*
+	 * is_wp_55_or_later()
+	 */
+
+	public function test_is_wp_55_or_later_for_WP5_5() {
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.5';
+
+		$this->assertTrue( c2c_wpuntexturize::is_wp_55_or_later() );
+
+		$wp_version = $orig_wp_verion;
+	}
+
+	public function test_is_wp_55_or_later_for_WP5_5_1() {
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.5.1';
+
+		$this->assertTrue( c2c_wpuntexturize::is_wp_55_or_later() );
+
+		$wp_version = $orig_wp_verion;
+	}
+
+	public function test_is_wp_55_or_later_for_WP5_4_2() {
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.4.2';
+
+		$this->assertFalse( c2c_wpuntexturize::is_wp_55_or_later() );
+
+		$wp_version = $orig_wp_verion;
+	}
+
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */
