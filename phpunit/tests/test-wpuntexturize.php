@@ -319,20 +319,64 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertArrayNotHasKey( 'c2c_wpuntexturize', get_registered_settings() );
 	}
 
-	public function test_does_not_hook_whitelist_options_for_unauthorized_user() {
+	public function test_does_not_hook_allowed_options_for_unauthorized_user_for_post_WP55() {
 		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
 		wp_set_current_user( $user_id );
+
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.5';
+
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( has_filter( 'allowed_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
+
+		$wp_version = $orig_wp_verion;
+	}
+
+	public function test_hooks_allowed_options_for_authorized_user_for_post_WP55() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.5';
+
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertEquals( 10, has_filter( 'allowed_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
+
+		$wp_version = $orig_wp_verion;
+	}
+
+	public function test_does_not_hook_whitelist_options_for_unauthorized_user_for_pre_WP55() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.4.2';
+
 		c2c_wpuntexturize::initialize_setting();
 
 		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
+
+		$wp_version = $orig_wp_verion;
 	}
 
-	public function test_hooks_whitelist_options_for_authorized_user() {
+	public function test_hooks_whitelist_options_for_authorized_user_for_pre_WP55() {
 		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
 		wp_set_current_user( $user_id );
+
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.4.2';
+
 		c2c_wpuntexturize::initialize_setting();
 
 		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
+
+		$wp_version = $orig_wp_verion;
 	}
 
 	public function test_does_not_hook_plugin_action_links_for_unauthorized_user() {
