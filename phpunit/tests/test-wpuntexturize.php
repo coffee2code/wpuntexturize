@@ -4,6 +4,13 @@ defined( 'ABSPATH' ) or die();
 
 class WPUntexturize_Test extends WP_UnitTestCase {
 
+	public function tearDown() {
+		parent::tearDown();
+
+		unset( $GLOBALS['wp_settings_fields'] );
+		unset( $GLOBALS['wp_registered_settings'] );
+	}
+
 	//
 	//
 	// DATA PROVIDERS
@@ -90,34 +97,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 
 	public function test_setting_name() {
 		$this->assertEquals( 'c2c_wpuntexturize', c2c_wpuntexturize::SETTING_NAME );
-	}
-
-	public function test_setting_is_not_registered_for_unauthorized_user() {
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertFalse( in_array( 'c2c_wpuntexturize', array_keys( get_registered_settings() ) ) );
-	}
-
-	public function test_setting_is_registered_for_authorized_user() {
-		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
-		wp_set_current_user( $user_id );
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertTrue( in_array( 'c2c_wpuntexturize', array_keys( get_registered_settings() ) ) );
-	}
-
-	public function test_does_not_hook_whitelist_options_for_unauthorized_user() {
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
-	}
-
-	public function test_hooks_whitelist_options_for_authorized_user() {
-		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
-		wp_set_current_user( $user_id );
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
 	}
 
 	/**
@@ -284,6 +263,85 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		c2c_wpuntexturize::initialize_setting();
 
 		$this->assertEquals( 10, has_action( $action, array ( 'c2c_wpuntexturize', 'plugin_action_links' ) ) );
+	}
+
+	/*
+	 * initialize_setting()
+	 */
+
+	public function test_setting_is_registered_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertArrayHasKey( 'c2c_wpuntexturize', get_registered_settings() );
+	}
+
+	public function test_setting_is_not_registered_for_unauthorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertArrayNotHasKey( 'c2c_wpuntexturize', get_registered_settings() );
+	}
+
+	public function test_does_not_hook_whitelist_options_for_unauthorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+	}
+
+	public function test_hooks_whitelist_options_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'whitelist_options' ) ) );
+	}
+
+	public function test_does_not_hook_plugin_action_links_for_unauthorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( has_filter( 'plugin_action_links_wpuntexturize/wpuntexturize.php', array( 'c2c_wpuntexturize', 'plugin_action_links' ) ) );
+	}
+
+	public function test_hooks_plugin_action_links_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertEquals( 10, has_filter( 'plugin_action_links_wpuntexturize/wpuntexturize.php', array( 'c2c_wpuntexturize', 'plugin_action_links' ) ) );
+	}
+
+	public function test_does_not_add_setting_field_for_unauthorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$this->assertFalse( isset( $GLOBALS['wp_settings_fields'] ) );
+	}
+
+	public function test_adds_setting_field_for_authorized_user() {
+		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
+		wp_set_current_user( $user_id );
+		c2c_wpuntexturize::initialize_setting();
+
+		$expected = array( 'reading' => array(
+			'default' => array(
+				'c2c_wpuntexturize' => array(
+					'id'       => 'c2c_wpuntexturize',
+					'title'    => 'Prevent all curly quotes?',
+					'callback' => array( 'c2c_wpuntexturize', 'display_option' ),
+					'args'     => array(),
+				),
+			),
+		) );
+
+		$this->assertSame( $expected, $GLOBALS['wp_settings_fields'] );
 	}
 
 	/*
