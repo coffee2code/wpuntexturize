@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: wpuntexturize
- * Version:     2.0
+ * Version:     2.1
  * Plugin URI:  https://coffee2code.com/wp-plugins/wpuntexturize/
  * Author:      Scott Reilly
  * Author URI:  https//coffee2code.com/
@@ -18,7 +18,7 @@
  *
  * @package wpuntexturize
  * @author  Scott Reilly
- * @version 2.0
+ * @version 2.1
  */
 
 /*
@@ -57,7 +57,7 @@ class c2c_wpuntexturize {
 	 * @since 2.0
 	 */
 	public static function version() {
-		return '2.0';
+		return '2.1';
 	}
 
 	/**

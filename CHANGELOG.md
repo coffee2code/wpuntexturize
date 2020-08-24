@@ -1,6 +1,13 @@
 # Changelog
 
-## _(in-progress)_
+## 2.1 _(2020-08-23)_
+
+### Highlights:
+
+This minor release mirrors and handles some WP 5.5 terminology changes for inclusion, restructures the unit test file structure, adds a TODO.md file, and notes compatibility through WP 5.5+.
+
+### Details:
+
 * Change: Escape settings name before being output as HTML attribute (hardening)
 * Change: Rename `whitelist_options()` to `allowed_options()`
 * Change: Handle renamings that took place in WP 5.5
