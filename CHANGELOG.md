@@ -6,6 +6,12 @@
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
 * Unit tests:
+    * Change: Restructure unit test directories and files into new `tests/` top-level directory
+        * Change: Move `phpunit/bin/` into `tests/`
+        * Change: Move `phpunit/bootstrap.php` into `tests/`
+        * Change: In bootstrap, store path to plugin file constant so its value can be used within that file and in test file
+        * Change: Move `phpunit/tests/*.php` into `tests/phpunit/tests/`
+        * Change: Remove 'test-' prefix from unit test file
     * Fix: Fix test that expected a deprecation notice that wasn't going to happen
     * New: Add test for `allowed_options()` that expects a deprecation notice if WP < 5.5
 
