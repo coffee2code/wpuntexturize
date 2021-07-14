@@ -433,6 +433,22 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		);
 	}
 
+	/**
+	 * @expectedDeprecated add_option_whitelist
+	 */
+	public function test_allowed_options_for_pre_WP55() {
+		global $wp_version;
+		$orig_wp_verion = $wp_version;
+		$wp_version = '5.4';
+
+		$this->assertSame(
+			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
+			c2c_wpuntexturize::allowed_options( array( 'example' => array( 'sample' ) ) )
+		);
+
+		$wp_version = $orig_wp_verion;
+	}
+
 	/*
 	 * display_option()
 	 */
