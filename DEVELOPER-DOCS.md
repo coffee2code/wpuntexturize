@@ -78,15 +78,15 @@ add_filter( 'c2c_wpuntexturize_replacements', 'c2c_change_wpuntexturize_replacem
 
 ### `c2c_wpuntexturize_convert_curly_quotes` _(filter)_
 
-The `c2c_wpuntexturize_convert_curly_quotes` filter allows you to prevent curly quotes from being converted into their non-curly alternatives.
+The `c2c_wpuntexturize_convert_curly_quotes` filter allows you to enable conversion of preexisting curly quotes into their non-curly alternatives.
 
 #### Arguments:
 
-* **$convert** _(boolean)_: Convert preexisting curly quotes? Default true.
+* **$convert** _(boolean)_: Convert preexisting curly quotes? Default false.
 
 #### Example:
 
 ```php
-// Don't convert curly quotes into non-curly quotes.
-add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_false' );
+// Convert preexisting curly quotes into non-curly quotes.
+add_filter( 'c2c_wpuntexturize_convert_curly_quotes', '__return_true' );
 ```

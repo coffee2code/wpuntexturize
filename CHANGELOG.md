@@ -4,6 +4,7 @@
 * Change: Refactor some code to prevent code duplication
 * Change: Check if the plugin's main class exists before defining it
 * Change: Note compatibility through WP 5.7+
+* Change: Correct documentation regarding the `c2c_wpuntexturize_convert_curly_quotes` filter
 * Change: Update copyright date (2021)
 * New: Add DEVELOPER-DOCS.md and move hooks documentation into it
 * Unit tests:

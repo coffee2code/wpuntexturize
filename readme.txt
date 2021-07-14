@@ -42,7 +42,7 @@ This ONLY prevents WordPress from making HTML entity code substitutions of singl
 
 Most likely these curly quotes are actually present in your originally post content and are being directly shown to visitors. WordPress isn't converting these to curly quotes since they are already that way. This could happen if you copy-and-pasted text from another source.
 
-If you don't want any curly quotes to appear in your posts at all, then on the Settings -> Reading admin page check the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
+If you don't want any curly quotes to appear in your posts at all, then on the Settings -> Reading admin page check the checkbox labeled "Prevent all curly quotes?". (Or if you're a developer, look into use of the `c2c_wpuntexturize_convert_curly_quotes` filter.)
 
 = What text does this plugin modify/filter? =
 
@@ -66,7 +66,7 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 * `c2c_wpuntexturize` : An alternative approach to safely invoke `c2c_wpuntexturize()` in such a way that if the plugin were deactivated or deleted, then your calls to the function won't cause errors in your site. This only applies if you use the function directly, which is not typical usage for most users.
 * `wpuntexturize_filters` : customize what filters to hook to be filtered with wpuntexturize. See the Description section for a complete list of all filters that are filtered by default.
 * `c2c_wpuntexturize_replacements` : Customize the character replacements handled by the plugin.
-* `c2c_wpuntexturize_convert_curly_quotes` : Prevent curly quotes from being converted into their non-curly alternatives.
+* `c2c_wpuntexturize_convert_curly_quotes` : Enable conversion of preexisting curly quotes into their non-curly alternatives.
 
 
 == Changelog ==
