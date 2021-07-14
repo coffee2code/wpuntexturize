@@ -41,6 +41,8 @@
 
 defined( 'ABSPATH' ) or die();
 
+if ( ! class_exists( 'c2c_wpuntexturize' ) ) :
+
 class c2c_wpuntexturize {
 
 	/**
@@ -269,6 +271,8 @@ class c2c_wpuntexturize {
 }
 
 add_action( 'plugins_loaded', array( 'c2c_wpuntexturize', 'init' ) );
+
+endif; // end if !class_exists()
 
 if ( ! function_exists( 'c2c_wpuntexturize' ) ) :
 	/**
