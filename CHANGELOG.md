@@ -5,6 +5,7 @@
 * Change: Check if the plugin's main class exists before defining it
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
+* New: Add DEVELOPER-DOCS.md and move hooks documentation into it
 * Unit tests:
     * Change: Restructure unit test directories and files into new `tests/` top-level directory
         * Change: Move `phpunit/bin/` into `tests/`
