@@ -4,6 +4,8 @@
 * Change: Check if the plugin's main class exists before defining it
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
+* Unit tests:
+    * Fix: Fix test that expected a deprecation notice that wasn't going to happen
 
 ## 2.1 _(2020-08-23)_
 

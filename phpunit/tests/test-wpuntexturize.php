@@ -426,9 +426,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	 * allowed_options()
 	 */
 
-	/**
-	 * @expectedDeprecated add_option_whitelist
-	 */
 	public function test_allowed_options() {
 		$this->assertSame(
 			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
