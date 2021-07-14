@@ -173,19 +173,11 @@ class c2c_wpuntexturize {
 	 * @return array The amended allowed options array.
 	 */
 	public static function allowed_options( $options ) {
-		if ( self::is_wp_55_or_later() ) {
-			$allowed_options = add_allowed_options(
-				array( self::SETTING_NAME => array( self::SETTING_NAME ) ),
-				$options
-			);
-		} else {
-			$allowed_options = add_option_whitelist(
-				array( self::SETTING_NAME => array( self::SETTING_NAME ) ),
-				$options
-			);
-		}
+		$added = array( self::SETTING_NAME => array( self::SETTING_NAME ) );
 
-		return $allowed_options;
+		return self::is_wp_55_or_later()
+			? add_allowed_options( $added, $options )
+			: add_option_whitelist( $added, $options );
 	}
 
 	/**
