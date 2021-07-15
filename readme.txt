@@ -74,7 +74,7 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 = 2.1 (2020-08-23) =
 Highlights:
 
-* This minor release mirrors and handles some WP 5.5 terminology changes for inclusion, restructures the unit test file structure, adds a TODO.md file, and notes compatibility through WP 5.5+.
+This minor release mirrors and handles some WP 5.5 terminology changes for inclusion, restructures the unit test file structure, adds a TODO.md file, and notes compatibility through WP 5.5+.
 
 Details:
 
@@ -102,7 +102,7 @@ Details:
 
 Highlights:
 
-* Recommended update that reverts an ill-advised change in default behavior added in v1.7 that automatically converted existing curly quotation marks into their non-curly alternatives. This behavior is now disabled by default, but can be optionally enabled on the Settings -> Reading admin page via the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
+Recommended update that reverts an ill-advised change in default behavior added in v1.7 that automatically converted existing curly quotation marks into their non-curly alternatives. This behavior is now disabled by default, but can be optionally enabled on the Settings -> Reading admin page via the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
 * Additionally, much of the plugin's code has been reorganized, the long-deprecated `wpuntexturize()` has been removed, a few URLs were updated to be HTTPS, and compatibility through WP 5.4+ has been noted.
 
 Details:
