@@ -16,6 +16,7 @@
         * Change: Remove 'test-' prefix from unit test file
     * Fix: Fix test that expected a deprecation notice that wasn't going to happen
     * New: Add test for `allowed_options()` that expects a deprecation notice if WP < 5.5
+* New: Add a few more possible TODO items
 
 ## 2.1 _(2020-08-23)_
 
