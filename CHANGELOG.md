@@ -1,6 +1,13 @@
 # Changelog
 
-## _(in-progress)_
+## 2.2 _(2021-07-14)_
+
+### Highlights:
+
+This minor release refactors some code, extracts developer docs out from readme and into new DEVELOPER-DOCS.md, restructures unit test files, and notes compatibility through WP 5.7.
+
+### Details:
+
 * Change: Refactor some code to prevent code duplication
 * Change: Check if the plugin's main class exists before defining it
 * Change: Note compatibility through WP 5.7+

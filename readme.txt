@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 5.7
-Stable tag: 2.1
+Stable tag: 2.2
 
 Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
 
@@ -71,6 +71,31 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 
 == Changelog ==
 
+= 2.2 (2021-07-14) =
+Highlights:
+
+This minor release refactors some code, extracts developer docs out from readme and into new DEVELOPER-DOCS.md, restructures unit test files, and notes compatibility through WP 5.7.
+
+Details:
+
+* Change: Refactor some code to prevent code duplication
+* Change: Check if the plugin's main class exists before defining it
+* Change: Note compatibility through WP 5.7+
+* Change: Correct documentation regarding the `c2c_wpuntexturize_convert_curly_quotes` filter
+* Change: Update copyright date (2021)
+* New: Add DEVELOPER-DOCS.md and move hooks documentation into it
+* Unit tests:
+    * Change: Restructure unit test directories and files into new `tests/` top-level directory
+        * Change: Move `phpunit/bin/` into `tests/`
+        * Change: Move `phpunit/bootstrap.php` into `tests/`
+        * Change: In bootstrap, store path to plugin file constant so its value can be used within that file and in test file
+        * Change: Move `phpunit/tests/*.php` into `tests/phpunit/tests/`
+        * Change: Remove 'test-' prefix from unit test file
+    * Fix: Fix test that expected a deprecation notice that wasn't going to happen
+    * New: Add test for `allowed_options()` that expects a deprecation notice if WP < 5.5
+* Change: Tweak formatting for older readme.txt changelog entries
+* New: Add a few more possible TODO items
+
 = 2.1 (2020-08-23) =
 Highlights:
 
@@ -126,15 +151,13 @@ Details:
 * Change: Unit tests: Remove unnecessary unregistering of hooks, and thus `tearDown()`
 * New: Add a screenshot
 
-= 1.7.1 (2019-11-12) =
-* Change: Note compatibility through WP 5.3+
-* Change: Use full URL for readme.txt link to full changelog
-* Change: Update copyright date (2020)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.2 =
+Minor update: refactored some code, extracted developer docs out from readme and into new DEVELOPER-DOCS.md, restructured unit test files, noted compatibility through WP 5.7, and updated copyright date (2021).
 
 = 2.1 =
 Recommended update: Mirrored and handled some WP 5.5 terminology changes for inclusion, restructured the unit test file structure, added a TODO.md file, and noted compatibility through WP 5.5+.
