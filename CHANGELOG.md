@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
+* Change: Add link to DEVELOPER-DOCS.md in README.md
 
 ## 2.2 _(2021-07-14)_
 
