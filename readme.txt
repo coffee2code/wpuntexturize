@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 6.3
-Stable tag: 2.2
+Stable tag: 2.2.1
 
 Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
 
@@ -71,6 +71,16 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 
 == Changelog ==
 
+= 2.2.1 (2023-04-29) =
+* Change: Note compatibility through WP 6.3+
+* Change: Update copyright date (2023)
+* Change: Add link to DEVELOPER-DOCS.md in README.md
+* New: Add `.gitignore` file
+* Unit tests:
+    * Fix: Allow tests to run against current versions of WordPress
+    * New: Add `composer.json` for PHPUnit Polyfill dependency
+    * Change: Prevent PHP warnings due to missing core-related generated files
+
 = 2.2 (2021-07-14) =
 Highlights:
 
@@ -123,38 +133,13 @@ Details:
     * New: Add test for `whitelist_options()`
     * Change: Rearrange, label the group, enhance, and expand tests for `initialize_setting()`
 
-= 2.0 (2020-05-15) =
-
-Highlights:
-
-Recommended update that reverts an ill-advised change in default behavior added in v1.7 that automatically converted existing curly quotation marks into their non-curly alternatives. This behavior is now disabled by default, but can be optionally enabled on the Settings -> Reading admin page via the checkbox labeled "Convert existing curly quotes in posts to their non-curly alternatives".
-* Additionally, much of the plugin's code has been reorganized, the long-deprecated `wpuntexturize()` has been removed, a few URLs were updated to be HTTPS, and compatibility through WP 5.4+ has been noted.
-
-Details:
-
-* Change: Revert default uncurling of native curly quotes and make it an optional behavior controlled by new setting
-    * New: Add setting to Settings -> Reading page
-    * New: Add "Settings" link to plugin's action links in admin listing of plugins
-    * New: Add `initialize_setting()`, `whitelist_options()`, `display_option()`, `should_convert_native_quotes()`, `plugin_action_links()`
-    * Change: Switch default for converting native curly quotes to false
-    * Change: Update plugin description and documentation to reflect new behavior
-* New: Add class `c2c_wpuntexturize` to encapsulate new (largely admin-related) and existing functionality
-    * New: Add `version()`, `init()`
-* Change: Extract logic for determining if native curly quotes should be handled into `should_convert_native_quotes()`
-* Change: Extract code for getting the list of replacements into `get_replacements()`
-* Change: Remove function `c2c_init_wpuntexturize()` (its functionality added to `init()`)
-* Change: Remove function `c2c_wpuntexturize_get_default_filters()` (moved to class function `get_default_filters()`)
-* Change: Remove deprecated function `wpuntexturize()` and its associated filter `wpuntexturize`
-* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
-* Change: Note compatibility through WP 5.4+
-* Change: Update links to coffee2code.com to be HTTPS
-* Change: Unit tests: Remove unnecessary unregistering of hooks, and thus `tearDown()`
-* New: Add a screenshot
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.2.1 =
+Trivial update: noted compatibility through WP 6.3+, updated unit tests to run against latest WordPress, and updated copyright date (2023)
 
 = 2.2 =
 Minor update: refactored some code, extracted developer docs out from readme and into new DEVELOPER-DOCS.md, restructured unit test files, noted compatibility through WP 5.7, and updated copyright date (2021).
