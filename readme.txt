@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 1.5
 Tested up to: 6.6
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 
 Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
 
@@ -71,6 +71,16 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 
 == Changelog ==
 
+= 2.2.2 (2024-08-08) =
+* Change: Note compatibility through WP 6.6+
+* Change: Update copyright date (2024)
+* Change: Reduce number of 'Tags' in readme.txt
+* Change: Remove development and testing related files from release packaging
+* Unit tests:
+    * Hardening: Prevent direct web access to `bootstrap.php`
+    * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
+
 = 2.2.1 (2023-04-29) =
 * Change: Note compatibility through WP 6.3+
 * Change: Update copyright date (2023)
@@ -106,37 +116,13 @@ Details:
 * Change: Tweak formatting for older readme.txt changelog entries
 * New: Add a few more possible TODO items
 
-= 2.1 (2020-08-23) =
-Highlights:
-
-This minor release mirrors and handles some WP 5.5 terminology changes for inclusion, restructures the unit test file structure, adds a TODO.md file, and notes compatibility through WP 5.5+.
-
-Details:
-
-* Change: Escape settings name before being output as HTML attribute (hardening)
-* Change: Rename `whitelist_options()` to `allowed_options()`
-* Change: Handle renamings that took place in WP 5.5
-    * New: Add `is_wp_55_or_later()` for determining if the site is WP 5.5 or later
-    * Change: Hook `allowed_options` instead of `whitelist_options` for WP 5.5+
-    * Change: Call `add_allowed_options()` instead of `add_option_whitelist()` for WP 5.5+
-* Change: Convert storage of setting name from private class variable to a class constant
-* New: Add TODO.md for newly added potential TODO items
-* Change: Restructure unit test file structure
-    * New: Create new subdirectory `phpunit/` to house all files related to unit testing
-    * Change: Move `bin/` to `phpunit/bin/`
-    * Change: Move `tests/bootstrap.php` to `phpunit/`
-    * Change: Move `tests/` to `phpunit/tests/`
-    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
-* Change: Note compatibility through WP 5.5+
-* Unit tests:
-    * New: Add test for setting name
-    * New: Add test for `whitelist_options()`
-    * Change: Rearrange, label the group, enhance, and expand tests for `initialize_setting()`
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.2.2 =
+Trivial update: noted compatibility through WP 6.6+, removed unit tests from release packaging, and updated copyright date (2024)
 
 = 2.2.1 =
 Trivial update: noted compatibility through WP 6.3+, updated unit tests to run against latest WordPress, and updated copyright date (2023)

@@ -1,9 +1,10 @@
 # Changelog
 
-## _(in-progress)_
+## 2.2.2 _(2024-08-08)_
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
 * Change: Reduce number of 'Tags' in readme.txt
+* Change: Remove development and testing related files from release packaging
 * Unit tests:
     * Hardening: Prevent direct web access to `bootstrap.php`
     * Change: In bootstrap, store path to plugin file constant

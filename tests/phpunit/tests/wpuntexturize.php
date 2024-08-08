@@ -84,7 +84,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 	}
 
 	public function test_plugin_version() {
-		$this->assertEquals( '2.2.1', c2c_wpuntexturize::version() );
+		$this->assertEquals( '2.2.2', c2c_wpuntexturize::version() );
 	}
 
 	public function test_hooks_plugins_loaded_for_init() {
