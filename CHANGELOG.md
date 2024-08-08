@@ -5,6 +5,7 @@
 * Change: Update copyright date (2024)
 * Change: Reduce number of 'Tags' in readme.txt
 * Unit tests:
+    * Change: In bootstrap, store path to plugin file constant
     * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
 
 ## 2.2.1 _(2023-06-06)_

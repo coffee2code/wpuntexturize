@@ -5,7 +5,10 @@
  * @package wpuntexturize
  */
 
-$polyfill_path = dirname( __FILE__, 3 ) . '/vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+define( 'WPUNTEXTURIZE_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
+define( 'WPUNTEXTURIZE_PLUGIN_FILE', WPUNTEXTURIZE_PLUGIN_DIR . '/wpuntexturizes.php' );
+
+$polyfill_path = WPUNTEXTURIZE_PLUGIN_DIR . '/vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
 if ( file_exists( $polyfill_path ) ) {
 	require $polyfill_path;
 } else {
@@ -13,8 +16,6 @@ if ( file_exists( $polyfill_path ) ) {
 	echo "Run: composer require --dev yoast/phpunit-polyfills:\"^2.0\"\n";
 	exit;
 }
-
-define( 'WPUNTEXTURIZE_PLUGIN_FILE', dirname( __FILE__, 3 ) . '/wpuntexturize.php' );
 
 ! defined( 'WP_RUN_CORE_TESTS' ) && define( 'WP_RUN_CORE_TESTS', false );
 
