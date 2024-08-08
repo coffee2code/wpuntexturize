@@ -9,7 +9,7 @@
 ( php_sapi_name() !== 'cli' ) && die();
 
 define( 'WPUNTEXTURIZE_PLUGIN_DIR',  dirname( __FILE__, 3 ) );
-define( 'WPUNTEXTURIZE_PLUGIN_FILE', WPUNTEXTURIZE_PLUGIN_DIR . '/wpuntexturizes.php' );
+define( 'WPUNTEXTURIZE_PLUGIN_FILE', WPUNTEXTURIZE_PLUGIN_DIR . '/wpuntexturize.php' );
 
 $polyfill_path = WPUNTEXTURIZE_PLUGIN_DIR . '/vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
 if ( file_exists( $polyfill_path ) ) {
