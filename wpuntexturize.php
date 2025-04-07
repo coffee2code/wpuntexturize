@@ -70,9 +70,6 @@ class c2c_wpuntexturize {
 	 * @since 2.0
 	 */
 	public static function init() {
-		// Load textdomain.
-		load_plugin_textdomain( 'wpuntexturize' );
-
 		// Register hooks.
 		add_action( 'admin_init', array( __CLASS__, 'initialize_setting' ) );
 
