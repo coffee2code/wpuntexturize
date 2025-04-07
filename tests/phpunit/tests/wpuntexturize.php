@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die();
 
 class WPUntexturize_Test extends WP_UnitTestCase {
 
-	public function tearDown() {
+	public function tearDown(): void {
 		parent::tearDown();
 
 		unset( $GLOBALS['wp_settings_fields'] );

@@ -8,6 +8,8 @@
 * Change: Drop compatiblity with versions of WP older than 5.5
 * Change: Shorten plugin description in plugin header
 * Change: Update copyright date (2025)
+* Unit tests:
+    * Change: Explicitly define return type for overridden method
 
 ## 2.2.2 _(2024-08-08)_
 * Change: Note compatibility through WP 6.6+
