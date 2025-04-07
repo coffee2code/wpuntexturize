@@ -3,6 +3,7 @@
 ## _(in-progress)_
 * Change: Remove code supporting versions of WP older than 5.5
 * Change: Discontinue explicit and unnecessary loading of textdomain
+* Change: Remove `is_wp_55_or_later()`
 * Change: Note compatibility through WP 6.8+
 * Change: Update copyright date (2025)
 
