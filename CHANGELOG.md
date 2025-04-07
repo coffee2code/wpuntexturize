@@ -10,6 +10,7 @@
 * Change: Update copyright date (2025)
 * Unit tests:
     * Change: Explicitly define return type for overridden method
+    * Change: Delete tests for removed back-compatibility
 
 ## 2.2.2 _(2024-08-08)_
 * Change: Note compatibility through WP 6.6+

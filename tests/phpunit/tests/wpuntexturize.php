@@ -99,40 +99,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertEquals( 'c2c_wpuntexturize', c2c_wpuntexturize::SETTING_NAME );
 	}
 
-	/*
-	 * is_wp_55_or_later()
-	 */
-
-	public function test_is_wp_55_or_later_for_WP5_5() {
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.5';
-
-		$this->assertTrue( c2c_wpuntexturize::is_wp_55_or_later() );
-
-		$wp_version = $orig_wp_verion;
-	}
-
-	public function test_is_wp_55_or_later_for_WP5_5_1() {
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.5.1';
-
-		$this->assertTrue( c2c_wpuntexturize::is_wp_55_or_later() );
-
-		$wp_version = $orig_wp_verion;
-	}
-
-	public function test_is_wp_55_or_later_for_WP5_4_2() {
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.4.2';
-
-		$this->assertFalse( c2c_wpuntexturize::is_wp_55_or_later() );
-
-		$wp_version = $orig_wp_verion;
-	}
-
 	/**
 	 * @dataProvider strings_containing_non_curly_quotes
 	 */
@@ -319,7 +285,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertArrayNotHasKey( 'c2c_wpuntexturize', get_registered_settings() );
 	}
 
-	public function test_does_not_hook_allowed_options_for_unauthorized_user_for_post_WP55() {
+	public function test_does_not_hook_allowed_options_for_unauthorized_user() {
 		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
 		wp_set_current_user( $user_id );
 
@@ -334,7 +300,7 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$wp_version = $orig_wp_verion;
 	}
 
-	public function test_hooks_allowed_options_for_authorized_user_for_post_WP55() {
+	public function test_hooks_allowed_options_for_authorized_user() {
 		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
 		wp_set_current_user( $user_id );
 
@@ -345,36 +311,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		c2c_wpuntexturize::initialize_setting();
 
 		$this->assertEquals( 10, has_filter( 'allowed_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
-
-		$wp_version = $orig_wp_verion;
-	}
-
-	public function test_does_not_hook_whitelist_options_for_unauthorized_user_for_pre_WP55() {
-		$user_id = $this->factory->user->create( array( 'role' => 'subscriber' ) );
-		wp_set_current_user( $user_id );
-
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.4.2';
-
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertFalse( has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
-
-		$wp_version = $orig_wp_verion;
-	}
-
-	public function test_hooks_whitelist_options_for_authorized_user_for_pre_WP55() {
-		$user_id = $this->factory->user->create( array( 'role' => 'administrator' ) );
-		wp_set_current_user( $user_id );
-
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.4.2';
-
-		c2c_wpuntexturize::initialize_setting();
-
-		$this->assertEquals( 10, has_filter( 'whitelist_options', array( 'c2c_wpuntexturize', 'allowed_options' ) ) );
 
 		$wp_version = $orig_wp_verion;
 	}
@@ -431,22 +367,6 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
 			c2c_wpuntexturize::allowed_options( array( 'example' => array( 'sample' ) ) )
 		);
-	}
-
-	/**
-	 * @expectedDeprecated add_option_whitelist
-	 */
-	public function test_allowed_options_for_pre_WP55() {
-		global $wp_version;
-		$orig_wp_verion = $wp_version;
-		$wp_version = '5.4';
-
-		$this->assertSame(
-			array( 'example' => array( 'sample' ), 'c2c_wpuntexturize' => array( 'c2c_wpuntexturize' ) ),
-			c2c_wpuntexturize::allowed_options( array( 'example' => array( 'sample' ) ) )
-		);
-
-		$wp_version = $orig_wp_verion;
 	}
 
 	/*
