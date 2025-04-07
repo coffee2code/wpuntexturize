@@ -7,6 +7,7 @@
 * Change: Note compatibility through WP 6.8+
 * Change: Drop compatiblity with versions of WP older than 5.5
 * Change: Shorten plugin description in plugin header
+* Fix: Fix typo in 'Author URI' plugin header value
 * Change: Update copyright date (2025)
 * Unit tests:
     * Change: Explicitly define return type for overridden method

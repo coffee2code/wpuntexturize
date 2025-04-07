@@ -4,7 +4,7 @@
  * Version:     2.2.2
  * Plugin URI:  https://coffee2code.com/wp-plugins/wpuntexturize/
  * Author:      Scott Reilly
- * Author URI:  https//coffee2code.com/
+ * Author URI:  https://coffee2code.com/
  * Text Domain: wpuntexturize
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
