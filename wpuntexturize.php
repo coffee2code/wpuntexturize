@@ -190,8 +190,11 @@ class c2c_wpuntexturize {
 			esc_attr( self::SETTING_NAME ),
 			esc_attr( self::SETTING_NAME ),
 			checked( true, self::should_convert_native_quotes(), false ),
-			__( 'Convert existing curly quotes in posts to their non-curly alternatives', 'wpuntexturize' ),
-			__( 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.', 'wpuntexturize' )
+			esc_html__( 'Convert existing curly quotes in posts to their non-curly alternatives', 'wpuntexturize' ),
+			wp_kses(
+				__( 'The <b>wpuntexturize</b> plugin already prevents non-curly quotes from being converted to curly quotes.', 'wpuntexturize' ),
+				array( 'b' => array() )
+			)
 		);
 	}
 

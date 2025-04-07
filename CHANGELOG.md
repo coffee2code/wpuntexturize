@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * Change: Remove code supporting versions of WP older than 5.5
+* Change: Escape output of all translated strings
 * Change: Discontinue explicit and unnecessary loading of textdomain
 * Change: Remove `is_wp_55_or_later()`
 * Change: Sanitize the plugin's setting value
