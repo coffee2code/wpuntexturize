@@ -9,6 +9,7 @@
 * New: Add `sanitize_boolean()`
 * Change: Note compatibility through WP 6.8+
 * Change: Drop compatiblity with versions of WP older than 5.5
+* Change: Confirm compatiblity through PHP 8.3+
 * Change: Shorten plugin description in plugin header and readme.txt
 * Fix: Fix typo in 'Author URI' plugin header value
 * Change: Update copyright date (2025)
