@@ -144,10 +144,7 @@ class c2c_wpuntexturize {
 
 		register_setting( 'reading', self::SETTING_NAME );
 
-		add_filter(
-			self::is_wp_55_or_later() ? 'allowed_options' : 'whitelist_options',
-			array( __CLASS__, 'allowed_options' )
-		);
+		add_filter( 'allowed_options', array( __CLASS__, 'allowed_options' ) );
 
 		add_settings_field(
 			self::SETTING_NAME,
@@ -172,9 +169,7 @@ class c2c_wpuntexturize {
 	public static function allowed_options( $options ) {
 		$added = array( self::SETTING_NAME => array( self::SETTING_NAME ) );
 
-		return self::is_wp_55_or_later()
-			? add_allowed_options( $added, $options )
-			: add_option_whitelist( $added, $options );
+		return add_allowed_options( $added, $options );
 	}
 
 	/**
