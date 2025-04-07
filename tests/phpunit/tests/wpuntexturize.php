@@ -473,4 +473,31 @@ class WPUntexturize_Test extends WP_UnitTestCase {
 		$this->assertFalse( c2c_wpuntexturize::should_convert_native_quotes() );
 	}
 
+	/*
+	 * sanitize_boolean()
+	 */
+
+	public function test_sanitize_boolean_true_values() {
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( 'true' ) );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( 'on' ) );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( 'yes' ) );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( '1' ) );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( 1 )  );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( true ) );
+		$this->assertTrue( c2c_wpuntexturize::sanitize_boolean( 'TRUE' ) );
+	}
+
+	public function test_sanitize_boolean_false_values() {
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 'false' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 'off' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 'no' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( '0' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 0 ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( false ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 'FALSE' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( 'random string' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( '' ) );
+		$this->assertFalse( c2c_wpuntexturize::sanitize_boolean( null ) );
+	}
+
 }

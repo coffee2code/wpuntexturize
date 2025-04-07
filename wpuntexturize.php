@@ -122,6 +122,18 @@ class c2c_wpuntexturize {
 	}
 
 	/**
+	 * Sanitizes a value to ensure it is a boolean.
+	 *
+	 * @since 2.3
+	 *
+	 * @param mixed $value The value to sanitize; ideally a boolean.
+	 * @return bool Returns the value if it is a boolean, else false.
+	 */
+	public static function sanitize_boolean( $value ) {
+		return filter_var( $value, FILTER_VALIDATE_BOOLEAN );
+	}
+
+	/**
 	 * Initializes setting.
 	 *
 	 * @since 2.0
@@ -131,7 +143,11 @@ class c2c_wpuntexturize {
 			return;
 		}
 
-		register_setting( 'reading', self::SETTING_NAME );
+		register_setting( 'reading', self::SETTING_NAME, array(
+			'type'              => 'boolean',
+			'sanitize_callback' => array( __CLASS__, 'sanitize_boolean' ),
+			'default'           => false,
+		) );
 
 		add_filter( 'allowed_options', array( __CLASS__, 'allowed_options' ) );
 

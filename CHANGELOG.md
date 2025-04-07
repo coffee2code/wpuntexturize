@@ -4,6 +4,8 @@
 * Change: Remove code supporting versions of WP older than 5.5
 * Change: Discontinue explicit and unnecessary loading of textdomain
 * Change: Remove `is_wp_55_or_later()`
+* Change: Sanitize the plugin's setting value
+* New: Add `sanitize_boolean()`
 * Change: Note compatibility through WP 6.8+
 * Change: Drop compatiblity with versions of WP older than 5.5
 * Change: Shorten plugin description in plugin header
