@@ -8,7 +8,7 @@ Requires at least: 5.5
 Tested up to: 6.8
 Stable tag: 2.2.2
 
-Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
+Prevent WordPress from converting single and double quotation marks into their curly alternatives.
 
 
 == Description ==
