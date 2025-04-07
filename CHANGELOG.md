@@ -1,6 +1,13 @@
 # Changelog
 
-## _(in-progress)_
+## 2.3 _(2025-04-07)_
+
+### Highlights:
+
+This recommended release drops support for versions of WP older than 5.5, prevents translations from including unintended markup, verifies compatibility through WP 6.8+ and PHP 8.3+, and a few more minor changes.
+
+### Details:
+
 * Change: Remove code supporting versions of WP older than 5.5
 * Change: Escape output of all translated strings
 * Change: Discontinue explicit and unnecessary loading of textdomain

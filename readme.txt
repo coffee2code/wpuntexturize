@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 5.5
 Tested up to: 6.8
-Stable tag: 2.2.2
+Stable tag: 2.3
 
 Prevent WordPress from converting single and double quotation marks into their curly alternatives.
 
@@ -71,6 +71,30 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
 
 == Changelog ==
 
+= 2.3 (2025-04-07) =
+Highlights:
+
+This recommended release drops support for versions of WP older than 5.5, prevents translations from including unintended markup, verifies compatibility through WP 6.8+ and PHP 8.3+, and a few more minor changes.
+
+Details:
+
+* Change: Remove code supporting versions of WP older than 5.5
+* Change: Escape output of all translated strings
+* Change: Discontinue explicit and unnecessary loading of textdomain
+* Change: Remove `is_wp_55_or_later()`
+* Change: Sanitize the plugin's setting value
+* New: Add `sanitize_boolean()`
+* Change: Note compatibility through WP 6.8+
+* Change: Drop compatiblity with versions of WP older than 5.5
+* Change: Confirm compatiblity through PHP 8.3+
+* Change: Shorten plugin description in plugin header and readme.txt
+* Fix: Fix typo in 'Author URI' plugin header value
+* Change: Update copyright date (2025)
+* Unit tests:
+    * Change: Explicitly define return type for overridden method
+    * Change: Delete tests for removed back-compatibility
+
+
 = 2.2.2 (2024-08-08) =
 * Change: Note compatibility through WP 6.6+
 * Change: Update copyright date (2024)
@@ -91,35 +115,13 @@ Developer documentation can be found in [DEVELOPER-DOCS.md](https://github.com/c
     * New: Add `composer.json` for PHPUnit Polyfill dependency
     * Change: Prevent PHP warnings due to missing core-related generated files
 
-= 2.2 (2021-07-14) =
-Highlights:
-
-This minor release refactors some code, extracts developer docs out from readme and into new DEVELOPER-DOCS.md, restructures unit test files, and notes compatibility through WP 5.7.
-
-Details:
-
-* Change: Refactor some code to prevent code duplication
-* Change: Check if the plugin's main class exists before defining it
-* Change: Note compatibility through WP 5.7+
-* Change: Correct documentation regarding the `c2c_wpuntexturize_convert_curly_quotes` filter
-* Change: Update copyright date (2021)
-* New: Add DEVELOPER-DOCS.md and move hooks documentation into it
-* Unit tests:
-    * Change: Restructure unit test directories and files into new `tests/` top-level directory
-        * Change: Move `phpunit/bin/` into `tests/`
-        * Change: Move `phpunit/bootstrap.php` into `tests/`
-        * Change: In bootstrap, store path to plugin file constant so its value can be used within that file and in test file
-        * Change: Move `phpunit/tests/*.php` into `tests/phpunit/tests/`
-        * Change: Remove 'test-' prefix from unit test file
-    * Fix: Fix test that expected a deprecation notice that wasn't going to happen
-    * New: Add test for `allowed_options()` that expects a deprecation notice if WP < 5.5
-* Change: Tweak formatting for older readme.txt changelog entries
-* New: Add a few more possible TODO items
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/wpuntexturize/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 2.3 =
+Recommended minor update: dropped support for versions of WP older than 5.5, prevented translations from containing unintended markup, noted compatibility through WP 6.8+ and PHP 8.3+, and updated copyright date (2025)
 
 = 2.2.2 =
 Trivial update: noted compatibility through WP 6.6+, removed unit tests from release packaging, and updated copyright date (2024)
