@@ -8,7 +8,7 @@
  * Text Domain: wpuntexturize
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Description: Prevent WordPress from converting single and double quotation marks into their curly alternatives, and optionally also convert existing curly quotation marks into their non-curly alternatives.
+ * Description: Prevent WordPress from converting single and double quotation marks into their curly alternatives.
  *
  * Compatible with WordPress 5.5+ through 6.8+.
  *
